@@ -1,0 +1,15 @@
+[
+  {
+    "ablation": "no_film",
+    "secs": 0.3797,
+    "avg_latency": 12.63
+  },
+  {
+    "ablation": "no_contrastive",
+    "secs": 0.3637
+  },
+  {
+    "ablation": "discrete_labels",
+    "secs": 0.3656
+  }
+]

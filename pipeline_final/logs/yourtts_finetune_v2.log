@@ -1,0 +1,1789 @@
+/home/nibiru/.conda/envs/ml_env/lib/python3.11/site-packages/jieba/_compat.py:18: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+Loading pretrained YourTTS config...
+  Copied d-vectors to staging dir (/home/nibiru/Documents/sem6project/Speech2/pipeline_v2/checkpoints/yourtts_restore/speakers.json)
+✓ LibriTTS dev-clean: /home/nibiru/Documents/sem6project/Speech2/pipeline_v2/data/raw/libritts_clean100/LibriTTS/dev-clean
+✓ LibriTTS test-clean: /home/nibiru/Documents/sem6project/Speech2/pipeline_v2/data/raw/libritts_clean100/LibriTTS/test-clean
+✓ Accent Archive: /home/nibiru/Documents/sem6project/Speech2/pipeline_v2/data/raw/archive/wav_16k
+
+Initializing model from config...
+ > Setting up Audio Processor...
+ | > sample_rate:16000
+ | > resample:False
+ | > num_mels:80
+ | > log_func:np.log10
+ | > min_level_db:0
+ | > frame_shift_ms:None
+ | > frame_length_ms:None
+ | > ref_level_db:None
+ | > fft_size:1024
+ | > power:None
+ | > preemphasis:0.0
+ | > griffin_lim_iters:None
+ | > signal_norm:None
+ | > symmetric_norm:None
+ | > mel_fmin:0
+ | > mel_fmax:None
+ | > pitch_fmin:None
+ | > pitch_fmax:None
+ | > spec_gain:20.0
+ | > stft_pad_mode:reflect
+ | > max_norm:1.0
+ | > clip_norm:True
+ | > do_trim_silence:False
+ | > trim_db:60
+ | > do_sound_norm:False
+ | > do_amp_to_db_linear:True
+ | > do_amp_to_db_mel:True
+ | > do_rms_norm:False
+ | > db_level:None
+ | > stats_path:None
+ | > base:10
+ | > hop_length:256
+ | > win_length:1024
+ > Model fully restored. 
+ > Setting up Audio Processor...
+ | > sample_rate:16000
+ | > resample:False
+ | > num_mels:64
+ | > log_func:np.log10
+ | > min_level_db:-100
+ | > frame_shift_ms:None
+ | > frame_length_ms:None
+ | > ref_level_db:20
+ | > fft_size:512
+ | > power:1.5
+ | > preemphasis:0.97
+ | > griffin_lim_iters:60
+ | > signal_norm:False
+ | > symmetric_norm:False
+ | > mel_fmin:0
+ | > mel_fmax:8000.0
+ | > pitch_fmin:1.0
+ | > pitch_fmax:640.0
+ | > spec_gain:20.0
+ | > stft_pad_mode:reflect
+ | > max_norm:4.0
+ | > clip_norm:False
+ | > do_trim_silence:False
+ | > trim_db:60
+ | > do_sound_norm:False
+ | > do_amp_to_db_linear:True
+ | > do_amp_to_db_mel:True
+ | > do_rms_norm:True
+ | > db_level:-27.0
+ | > stats_path:None
+ | > base:10
+ | > hop_length:160
+ | > win_length:400
+ > External Speaker Encoder Loaded !!
+ > initialization of language-embedding layers.
+Loading training samples (no auto-split)...
+ | > Found 5736 files in /home/nibiru/Documents/sem6project/Speech2/pipeline_v2/data/raw/libritts_clean100/LibriTTS/dev-clean
+ | > Found 4837 files in /home/nibiru/Documents/sem6project/Speech2/pipeline_v2/data/raw/libritts_clean100/LibriTTS/test-clean
+ | > Found 2133 files in /home/nibiru/Documents/sem6project/Speech2/pipeline_v2/data/raw/archive/wav_16k
+  Total samples: 12706 (LibriTTS: 10573, Archive: 2133)
+  Train: 12654 (10521 LibriTTS + 2133 Archive)
+  Eval:  52 (LibriTTS only)
+
+Verifying d-vector file...
+  ✓ D-vector file exists: 138.5 MB
+  ✓ Approximate entries: 1 (expected ~12,706)
+  Training sample keys (first 3): ['libritts_testclean#1995/1836/1995_1836_000007_000002', 'libritts_devclean#3000/15664/3000_15664_000026_000002', 'libritts_devclean#1272/141231/1272_141231_000034_000000']
+
+============================================================
+YourTTS Fine-tuning
+============================================================
+  Train samples: 12654
+  Eval samples:  52
+  Batch size:    1
+  LR:            5e-05
+  Mixed prec:    True
+  D-vectors:     /home/nibiru/Documents/sem6project/Speech2/pipeline_v2/data/dvectors/speakers.json
+  Speakers:      ~2,212 (LibriTTS + Accent Archive)
+  Restore from:  /home/nibiru/Documents/sem6project/Speech2/pipeline_v2/checkpoints/yourtts_restore/model_file.pth
+  Output:        /home/nibiru/Documents/sem6project/Speech2/pipeline_v2/checkpoints/yourtts_finetuned
+============================================================
+
+fatal: not a git repository (or any parent up to mount point /)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+fatal: not a git repository (or any parent up to mount point /)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+ > Training Environment:
+ | > Backend: Torch
+ | > Mixed precision: True
+ | > Precision: fp16
+ | > Current device: 0
+ | > Num. of GPUs: 1
+ | > Num. of CPUs: 20
+ | > Num. of Torch Threads: 14
+ | > Torch seed: 54321
+ | > Torch CUDNN: True
+ | > Torch CUDNN deterministic: False
+ | > Torch CUDNN benchmark: True
+ | > Torch TF32 MatMul: False
+2026-03-05 15:30:50.541727: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-03-05 15:30:50.897525: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2026-03-05 15:30:53.852115: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+ > Start Tensorboard: tensorboard --logdir=/home/nibiru/Documents/sem6project/Speech2/pipeline_v2/checkpoints/yourtts_finetuned/vits_tts-portuguese-March-05-2026_03+30PM-0000000
+ > `speakers.pth` is saved to /home/nibiru/Documents/sem6project/Speech2/pipeline_v2/checkpoints/yourtts_finetuned/vits_tts-portuguese-March-05-2026_03+30PM-0000000/speakers.pth.
+ > `speakers_file` is updated in the config.json.
+ > `language_ids.json` is saved to /home/nibiru/Documents/sem6project/Speech2/pipeline_v2/checkpoints/yourtts_finetuned/vits_tts-portuguese-March-05-2026_03+30PM-0000000/language_ids.json.
+ > `language_ids_file` is updated in the config.json.
+/home/nibiru/.conda/envs/ml_env/lib/python3.11/site-packages/trainer/trainer.py:552: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  self.scaler = torch.cuda.amp.GradScaler()
+ > Restoring from model_file.pth ...
+ > Restoring Model...
+ > Partial model initialization...
+ | > Layer missing in the model definition: speaker_encoder.conv1.weight
+ | > Layer missing in the model definition: speaker_encoder.conv1.bias
+ | > Layer missing in the model definition: speaker_encoder.bn1.weight
+ | > Layer missing in the model definition: speaker_encoder.bn1.bias
+ | > Layer missing in the model definition: speaker_encoder.bn1.running_mean
+ | > Layer missing in the model definition: speaker_encoder.bn1.running_var
+ | > Layer missing in the model definition: speaker_encoder.bn1.num_batches_tracked
+ | > Layer missing in the model definition: speaker_encoder.layer1.0.conv1.weight
+ | > Layer missing in the model definition: speaker_encoder.layer1.0.bn1.weight
+ | > Layer missing in the model definition: speaker_encoder.layer1.0.bn1.bias
+ | > Layer missing in the model definition: speaker_encoder.layer1.0.bn1.running_mean
+ | > Layer missing in the model definition: speaker_encoder.layer1.0.bn1.running_var
+ | > Layer missing in the model definition: speaker_encoder.layer1.0.bn1.num_batches_tracked
+ | > Layer missing in the model definition: speaker_encoder.layer1.0.conv2.weight
+ | > Layer missing in the model definition: speaker_encoder.layer1.0.bn2.weight
+ | > Layer missing in the model definition: speaker_encoder.layer1.0.bn2.bias
+ | > Layer missing in the model definition: speaker_encoder.layer1.0.bn2.running_mean
+ | > Layer missing in the model definition: speaker_encoder.layer1.0.bn2.running_var
+ | > Layer missing in the model definition: speaker_encoder.layer1.0.bn2.num_batches_tracked
+ | > Layer missing in the model definition: speaker_encoder.layer1.0.se.fc.0.weight
+ | > Layer missing in the model definition: speaker_encoder.layer1.0.se.fc.0.bias
+ | > Layer missing in the model definition: speaker_encoder.layer1.0.se.fc.2.weight
+ | > Layer missing in the model definition: speaker_encoder.layer1.0.se.fc.2.bias
+ | > Layer missing in the model definition: speaker_encoder.layer1.1.conv1.weight
+ | > Layer missing in the model definition: speaker_encoder.layer1.1.bn1.weight
+ | > Layer missing in the model definition: speaker_encoder.layer1.1.bn1.bias
+ | > Layer missing in the model definition: speaker_encoder.layer1.1.bn1.running_mean
+ | > Layer missing in the model definition: speaker_encoder.layer1.1.bn1.running_var
+ | > Layer missing in the model definition: speaker_encoder.layer1.1.bn1.num_batches_tracked
+ | > Layer missing in the model definition: speaker_encoder.layer1.1.conv2.weight
+ | > Layer missing in the model definition: speaker_encoder.layer1.1.bn2.weight
+ | > Layer missing in the model definition: speaker_encoder.layer1.1.bn2.bias
+ | > Layer missing in the model definition: speaker_encoder.layer1.1.bn2.running_mean
+ | > Layer missing in the model definition: speaker_encoder.layer1.1.bn2.running_var
+ | > Layer missing in the model definition: speaker_encoder.layer1.1.bn2.num_batches_tracked
+ | > Layer missing in the model definition: speaker_encoder.layer1.1.se.fc.0.weight
+ | > Layer missing in the model definition: speaker_encoder.layer1.1.se.fc.0.bias
+ | > Layer missing in the model definition: speaker_encoder.layer1.1.se.fc.2.weight
+ | > Layer missing in the model definition: speaker_encoder.layer1.1.se.fc.2.bias
+ | > Layer missing in the model definition: speaker_encoder.layer1.2.conv1.weight
+ | > Layer missing in the model definition: speaker_encoder.layer1.2.bn1.weight
+ | > Layer missing in the model definition: speaker_encoder.layer1.2.bn1.bias
+ | > Layer missing in the model definition: speaker_encoder.layer1.2.bn1.running_mean
+ | > Layer missing in the model definition: speaker_encoder.layer1.2.bn1.running_var
+ | > Layer missing in the model definition: speaker_encoder.layer1.2.bn1.num_batches_tracked
+ | > Layer missing in the model definition: speaker_encoder.layer1.2.conv2.weight
+ | > Layer missing in the model definition: speaker_encoder.layer1.2.bn2.weight
+ | > Layer missing in the model definition: speaker_encoder.layer1.2.bn2.bias
+ | > Layer missing in the model definition: speaker_encoder.layer1.2.bn2.running_mean
+ | > Layer missing in the model definition: speaker_encoder.layer1.2.bn2.running_var
+ | > Layer missing in the model definition: speaker_encoder.layer1.2.bn2.num_batches_tracked
+ | > Layer missing in the model definition: speaker_encoder.layer1.2.se.fc.0.weight
+ | > Layer missing in the model definition: speaker_encoder.layer1.2.se.fc.0.bias
+ | > Layer missing in the model definition: speaker_encoder.layer1.2.se.fc.2.weight
+ | > Layer missing in the model definition: speaker_encoder.layer1.2.se.fc.2.bias
+ | > Layer missing in the model definition: speaker_encoder.layer2.0.conv1.weight
+ | > Layer missing in the model definition: speaker_encoder.layer2.0.bn1.weight
+ | > Layer missing in the model definition: speaker_encoder.layer2.0.bn1.bias
+ | > Layer missing in the model definition: speaker_encoder.layer2.0.bn1.running_mean
+ | > Layer missing in the model definition: speaker_encoder.layer2.0.bn1.running_var
+ | > Layer missing in the model definition: speaker_encoder.layer2.0.bn1.num_batches_tracked
+ | > Layer missing in the model definition: speaker_encoder.layer2.0.conv2.weight
+ | > Layer missing in the model definition: speaker_encoder.layer2.0.bn2.weight
+ | > Layer missing in the model definition: speaker_encoder.layer2.0.bn2.bias
+ | > Layer missing in the model definition: speaker_encoder.layer2.0.bn2.running_mean
+ | > Layer missing in the model definition: speaker_encoder.layer2.0.bn2.running_var
+ | > Layer missing in the model definition: speaker_encoder.layer2.0.bn2.num_batches_tracked
+ | > Layer missing in the model definition: speaker_encoder.layer2.0.se.fc.0.weight
+ | > Layer missing in the model definition: speaker_encoder.layer2.0.se.fc.0.bias
+ | > Layer missing in the model definition: speaker_encoder.layer2.0.se.fc.2.weight
+ | > Layer missing in the model definition: speaker_encoder.layer2.0.se.fc.2.bias
+ | > Layer missing in the model definition: speaker_encoder.layer2.0.downsample.0.weight
+ | > Layer missing in the model definition: speaker_encoder.layer2.0.downsample.1.weight
+ | > Layer missing in the model definition: speaker_encoder.layer2.0.downsample.1.bias
+ | > Layer missing in the model definition: speaker_encoder.layer2.0.downsample.1.running_mean
+ | > Layer missing in the model definition: speaker_encoder.layer2.0.downsample.1.running_var
+ | > Layer missing in the model definition: speaker_encoder.layer2.0.downsample.1.num_batches_tracked
+ | > Layer missing in the model definition: speaker_encoder.layer2.1.conv1.weight
+ | > Layer missing in the model definition: speaker_encoder.layer2.1.bn1.weight
+ | > Layer missing in the model definition: speaker_encoder.layer2.1.bn1.bias
+ | > Layer missing in the model definition: speaker_encoder.layer2.1.bn1.running_mean
+ | > Layer missing in the model definition: speaker_encoder.layer2.1.bn1.running_var
+ | > Layer missing in the model definition: speaker_encoder.layer2.1.bn1.num_batches_tracked
+ | > Layer missing in the model definition: speaker_encoder.layer2.1.conv2.weight
+ | > Layer missing in the model definition: speaker_encoder.layer2.1.bn2.weight
+ | > Layer missing in the model definition: speaker_encoder.layer2.1.bn2.bias
+ | > Layer missing in the model definition: speaker_encoder.layer2.1.bn2.running_mean
+ | > Layer missing in the model definition: speaker_encoder.layer2.1.bn2.running_var
+ | > Layer missing in the model definition: speaker_encoder.layer2.1.bn2.num_batches_tracked
+ | > Layer missing in the model definition: speaker_encoder.layer2.1.se.fc.0.weight
+ | > Layer missing in the model definition: speaker_encoder.layer2.1.se.fc.0.bias
+ | > Layer missing in the model definition: speaker_encoder.layer2.1.se.fc.2.weight
+ | > Layer missing in the model definition: speaker_encoder.layer2.1.se.fc.2.bias
+ | > Layer missing in the model definition: speaker_encoder.layer2.2.conv1.weight
+ | > Layer missing in the model definition: speaker_encoder.layer2.2.bn1.weight
+ | > Layer missing in the model definition: speaker_encoder.layer2.2.bn1.bias
+ | > Layer missing in the model definition: speaker_encoder.layer2.2.bn1.running_mean
+ | > Layer missing in the model definition: speaker_encoder.layer2.2.bn1.running_var
+ | > Layer missing in the model definition: speaker_encoder.layer2.2.bn1.num_batches_tracked
+ | > Layer missing in the model definition: speaker_encoder.layer2.2.conv2.weight
+ | > Layer missing in the model definition: speaker_encoder.layer2.2.bn2.weight
+ | > Layer missing in the model definition: speaker_encoder.layer2.2.bn2.bias
+ | > Layer missing in the model definition: speaker_encoder.layer2.2.bn2.running_mean
+ | > Layer missing in the model definition: speaker_encoder.layer2.2.bn2.running_var
+ | > Layer missing in the model definition: speaker_encoder.layer2.2.bn2.num_batches_tracked
+ | > Layer missing in the model definition: speaker_encoder.layer2.2.se.fc.0.weight
+ | > Layer missing in the model definition: speaker_encoder.layer2.2.se.fc.0.bias
+ | > Layer missing in the model definition: speaker_encoder.layer2.2.se.fc.2.weight
+ | > Layer missing in the model definition: speaker_encoder.layer2.2.se.fc.2.bias
+ | > Layer missing in the model definition: speaker_encoder.layer2.3.conv1.weight
+ | > Layer missing in the model definition: speaker_encoder.layer2.3.bn1.weight
+ | > Layer missing in the model definition: speaker_encoder.layer2.3.bn1.bias
+ | > Layer missing in the model definition: speaker_encoder.layer2.3.bn1.running_mean
+ | > Layer missing in the model definition: speaker_encoder.layer2.3.bn1.running_var
+ | > Layer missing in the model definition: speaker_encoder.layer2.3.bn1.num_batches_tracked
+ | > Layer missing in the model definition: speaker_encoder.layer2.3.conv2.weight
+ | > Layer missing in the model definition: speaker_encoder.layer2.3.bn2.weight
+ | > Layer missing in the model definition: speaker_encoder.layer2.3.bn2.bias
+ | > Layer missing in the model definition: speaker_encoder.layer2.3.bn2.running_mean
+ | > Layer missing in the model definition: speaker_encoder.layer2.3.bn2.running_var
+ | > Layer missing in the model definition: speaker_encoder.layer2.3.bn2.num_batches_tracked
+ | > Layer missing in the model definition: speaker_encoder.layer2.3.se.fc.0.weight
+ | > Layer missing in the model definition: speaker_encoder.layer2.3.se.fc.0.bias
+ | > Layer missing in the model definition: speaker_encoder.layer2.3.se.fc.2.weight
+ | > Layer missing in the model definition: speaker_encoder.layer2.3.se.fc.2.bias
+ | > Layer missing in the model definition: speaker_encoder.layer3.0.conv1.weight
+ | > Layer missing in the model definition: speaker_encoder.layer3.0.bn1.weight
+ | > Layer missing in the model definition: speaker_encoder.layer3.0.bn1.bias
+ | > Layer missing in the model definition: speaker_encoder.layer3.0.bn1.running_mean
+ | > Layer missing in the model definition: speaker_encoder.layer3.0.bn1.running_var
+ | > Layer missing in the model definition: speaker_encoder.layer3.0.bn1.num_batches_tracked
+ | > Layer missing in the model definition: speaker_encoder.layer3.0.conv2.weight
+ | > Layer missing in the model definition: speaker_encoder.layer3.0.bn2.weight
+ | > Layer missing in the model definition: speaker_encoder.layer3.0.bn2.bias
+ | > Layer missing in the model definition: speaker_encoder.layer3.0.bn2.running_mean
+ | > Layer missing in the model definition: speaker_encoder.layer3.0.bn2.running_var
+ | > Layer missing in the model definition: speaker_encoder.layer3.0.bn2.num_batches_tracked
+ | > Layer missing in the model definition: speaker_encoder.layer3.0.se.fc.0.weight
+ | > Layer missing in the model definition: speaker_encoder.layer3.0.se.fc.0.bias
+ | > Layer missing in the model definition: speaker_encoder.layer3.0.se.fc.2.weight
+ | > Layer missing in the model definition: speaker_encoder.layer3.0.se.fc.2.bias
+ | > Layer missing in the model definition: speaker_encoder.layer3.0.downsample.0.weight
+ | > Layer missing in the model definition: speaker_encoder.layer3.0.downsample.1.weight
+ | > Layer missing in the model definition: speaker_encoder.layer3.0.downsample.1.bias
+ | > Layer missing in the model definition: speaker_encoder.layer3.0.downsample.1.running_mean
+ | > Layer missing in the model definition: speaker_encoder.layer3.0.downsample.1.running_var
+ | > Layer missing in the model definition: speaker_encoder.layer3.0.downsample.1.num_batches_tracked
+ | > Layer missing in the model definition: speaker_encoder.layer3.1.conv1.weight
+ | > Layer missing in the model definition: speaker_encoder.layer3.1.bn1.weight
+ | > Layer missing in the model definition: speaker_encoder.layer3.1.bn1.bias
+ | > Layer missing in the model definition: speaker_encoder.layer3.1.bn1.running_mean
+ | > Layer missing in the model definition: speaker_encoder.layer3.1.bn1.running_var
+ | > Layer missing in the model definition: speaker_encoder.layer3.1.bn1.num_batches_tracked
+ | > Layer missing in the model definition: speaker_encoder.layer3.1.conv2.weight
+ | > Layer missing in the model definition: speaker_encoder.layer3.1.bn2.weight
+ | > Layer missing in the model definition: speaker_encoder.layer3.1.bn2.bias
+ | > Layer missing in the model definition: speaker_encoder.layer3.1.bn2.running_mean
+ | > Layer missing in the model definition: speaker_encoder.layer3.1.bn2.running_var
+ | > Layer missing in the model definition: speaker_encoder.layer3.1.bn2.num_batches_tracked
+ | > Layer missing in the model definition: speaker_encoder.layer3.1.se.fc.0.weight
+ | > Layer missing in the model definition: speaker_encoder.layer3.1.se.fc.0.bias
+ | > Layer missing in the model definition: speaker_encoder.layer3.1.se.fc.2.weight
+ | > Layer missing in the model definition: speaker_encoder.layer3.1.se.fc.2.bias
+ | > Layer missing in the model definition: speaker_encoder.layer3.2.conv1.weight
+ | > Layer missing in the model definition: speaker_encoder.layer3.2.bn1.weight
+ | > Layer missing in the model definition: speaker_encoder.layer3.2.bn1.bias
+ | > Layer missing in the model definition: speaker_encoder.layer3.2.bn1.running_mean
+ | > Layer missing in the model definition: speaker_encoder.layer3.2.bn1.running_var
+ | > Layer missing in the model definition: speaker_encoder.layer3.2.bn1.num_batches_tracked
+ | > Layer missing in the model definition: speaker_encoder.layer3.2.conv2.weight
+ | > Layer missing in the model definition: speaker_encoder.layer3.2.bn2.weight
+ | > Layer missing in the model definition: speaker_encoder.layer3.2.bn2.bias
+ | > Layer missing in the model definition: speaker_encoder.layer3.2.bn2.running_mean
+ | > Layer missing in the model definition: speaker_encoder.layer3.2.bn2.running_var
+ | > Layer missing in the model definition: speaker_encoder.layer3.2.bn2.num_batches_tracked
+ | > Layer missing in the model definition: speaker_encoder.layer3.2.se.fc.0.weight
+ | > Layer missing in the model definition: speaker_encoder.layer3.2.se.fc.0.bias
+ | > Layer missing in the model definition: speaker_encoder.layer3.2.se.fc.2.weight
+ | > Layer missing in the model definition: speaker_encoder.layer3.2.se.fc.2.bias
+ | > Layer missing in the model definition: speaker_encoder.layer3.3.conv1.weight
+ | > Layer missing in the model definition: speaker_encoder.layer3.3.bn1.weight
+ | > Layer missing in the model definition: speaker_encoder.layer3.3.bn1.bias
+ | > Layer missing in the model definition: speaker_encoder.layer3.3.bn1.running_mean
+ | > Layer missing in the model definition: speaker_encoder.layer3.3.bn1.running_var
+ | > Layer missing in the model definition: speaker_encoder.layer3.3.bn1.num_batches_tracked
+ | > Layer missing in the model definition: speaker_encoder.layer3.3.conv2.weight
+ | > Layer missing in the model definition: speaker_encoder.layer3.3.bn2.weight
+ | > Layer missing in the model definition: speaker_encoder.layer3.3.bn2.bias
+ | > Layer missing in the model definition: speaker_encoder.layer3.3.bn2.running_mean
+ | > Layer missing in the model definition: speaker_encoder.layer3.3.bn2.running_var
+ | > Layer missing in the model definition: speaker_encoder.layer3.3.bn2.num_batches_tracked
+ | > Layer missing in the model definition: speaker_encoder.layer3.3.se.fc.0.weight
+ | > Layer missing in the model definition: speaker_encoder.layer3.3.se.fc.0.bias
+ | > Layer missing in the model definition: speaker_encoder.layer3.3.se.fc.2.weight
+ | > Layer missing in the model definition: speaker_encoder.layer3.3.se.fc.2.bias
+ | > Layer missing in the model definition: speaker_encoder.layer3.4.conv1.weight
+ | > Layer missing in the model definition: speaker_encoder.layer3.4.bn1.weight
+ | > Layer missing in the model definition: speaker_encoder.layer3.4.bn1.bias
+ | > Layer missing in the model definition: speaker_encoder.layer3.4.bn1.running_mean
+ | > Layer missing in the model definition: speaker_encoder.layer3.4.bn1.running_var
+ | > Layer missing in the model definition: speaker_encoder.layer3.4.bn1.num_batches_tracked
+ | > Layer missing in the model definition: speaker_encoder.layer3.4.conv2.weight
+ | > Layer missing in the model definition: speaker_encoder.layer3.4.bn2.weight
+ | > Layer missing in the model definition: speaker_encoder.layer3.4.bn2.bias
+ | > Layer missing in the model definition: speaker_encoder.layer3.4.bn2.running_mean
+ | > Layer missing in the model definition: speaker_encoder.layer3.4.bn2.running_var
+ | > Layer missing in the model definition: speaker_encoder.layer3.4.bn2.num_batches_tracked
+ | > Layer missing in the model definition: speaker_encoder.layer3.4.se.fc.0.weight
+ | > Layer missing in the model definition: speaker_encoder.layer3.4.se.fc.0.bias
+ | > Layer missing in the model definition: speaker_encoder.layer3.4.se.fc.2.weight
+ | > Layer missing in the model definition: speaker_encoder.layer3.4.se.fc.2.bias
+ | > Layer missing in the model definition: speaker_encoder.layer3.5.conv1.weight
+ | > Layer missing in the model definition: speaker_encoder.layer3.5.bn1.weight
+ | > Layer missing in the model definition: speaker_encoder.layer3.5.bn1.bias
+ | > Layer missing in the model definition: speaker_encoder.layer3.5.bn1.running_mean
+ | > Layer missing in the model definition: speaker_encoder.layer3.5.bn1.running_var
+ | > Layer missing in the model definition: speaker_encoder.layer3.5.bn1.num_batches_tracked
+ | > Layer missing in the model definition: speaker_encoder.layer3.5.conv2.weight
+ | > Layer missing in the model definition: speaker_encoder.layer3.5.bn2.weight
+ | > Layer missing in the model definition: speaker_encoder.layer3.5.bn2.bias
+ | > Layer missing in the model definition: speaker_encoder.layer3.5.bn2.running_mean
+ | > Layer missing in the model definition: speaker_encoder.layer3.5.bn2.running_var
+ | > Layer missing in the model definition: speaker_encoder.layer3.5.bn2.num_batches_tracked
+ | > Layer missing in the model definition: speaker_encoder.layer3.5.se.fc.0.weight
+ | > Layer missing in the model definition: speaker_encoder.layer3.5.se.fc.0.bias
+ | > Layer missing in the model definition: speaker_encoder.layer3.5.se.fc.2.weight
+ | > Layer missing in the model definition: speaker_encoder.layer3.5.se.fc.2.bias
+ | > Layer missing in the model definition: speaker_encoder.layer4.0.conv1.weight
+ | > Layer missing in the model definition: speaker_encoder.layer4.0.bn1.weight
+ | > Layer missing in the model definition: speaker_encoder.layer4.0.bn1.bias
+ | > Layer missing in the model definition: speaker_encoder.layer4.0.bn1.running_mean
+ | > Layer missing in the model definition: speaker_encoder.layer4.0.bn1.running_var
+ | > Layer missing in the model definition: speaker_encoder.layer4.0.bn1.num_batches_tracked
+ | > Layer missing in the model definition: speaker_encoder.layer4.0.conv2.weight
+ | > Layer missing in the model definition: speaker_encoder.layer4.0.bn2.weight
+ | > Layer missing in the model definition: speaker_encoder.layer4.0.bn2.bias
+ | > Layer missing in the model definition: speaker_encoder.layer4.0.bn2.running_mean
+ | > Layer missing in the model definition: speaker_encoder.layer4.0.bn2.running_var
+ | > Layer missing in the model definition: speaker_encoder.layer4.0.bn2.num_batches_tracked
+ | > Layer missing in the model definition: speaker_encoder.layer4.0.se.fc.0.weight
+ | > Layer missing in the model definition: speaker_encoder.layer4.0.se.fc.0.bias
+ | > Layer missing in the model definition: speaker_encoder.layer4.0.se.fc.2.weight
+ | > Layer missing in the model definition: speaker_encoder.layer4.0.se.fc.2.bias
+ | > Layer missing in the model definition: speaker_encoder.layer4.0.downsample.0.weight
+ | > Layer missing in the model definition: speaker_encoder.layer4.0.downsample.1.weight
+ | > Layer missing in the model definition: speaker_encoder.layer4.0.downsample.1.bias
+ | > Layer missing in the model definition: speaker_encoder.layer4.0.downsample.1.running_mean
+ | > Layer missing in the model definition: speaker_encoder.layer4.0.downsample.1.running_var
+ | > Layer missing in the model definition: speaker_encoder.layer4.0.downsample.1.num_batches_tracked
+ | > Layer missing in the model definition: speaker_encoder.layer4.1.conv1.weight
+ | > Layer missing in the model definition: speaker_encoder.layer4.1.bn1.weight
+ | > Layer missing in the model definition: speaker_encoder.layer4.1.bn1.bias
+ | > Layer missing in the model definition: speaker_encoder.layer4.1.bn1.running_mean
+ | > Layer missing in the model definition: speaker_encoder.layer4.1.bn1.running_var
+ | > Layer missing in the model definition: speaker_encoder.layer4.1.bn1.num_batches_tracked
+ | > Layer missing in the model definition: speaker_encoder.layer4.1.conv2.weight
+ | > Layer missing in the model definition: speaker_encoder.layer4.1.bn2.weight
+ | > Layer missing in the model definition: speaker_encoder.layer4.1.bn2.bias
+ | > Layer missing in the model definition: speaker_encoder.layer4.1.bn2.running_mean
+ | > Layer missing in the model definition: speaker_encoder.layer4.1.bn2.running_var
+ | > Layer missing in the model definition: speaker_encoder.layer4.1.bn2.num_batches_tracked
+ | > Layer missing in the model definition: speaker_encoder.layer4.1.se.fc.0.weight
+ | > Layer missing in the model definition: speaker_encoder.layer4.1.se.fc.0.bias
+ | > Layer missing in the model definition: speaker_encoder.layer4.1.se.fc.2.weight
+ | > Layer missing in the model definition: speaker_encoder.layer4.1.se.fc.2.bias
+ | > Layer missing in the model definition: speaker_encoder.layer4.2.conv1.weight
+ | > Layer missing in the model definition: speaker_encoder.layer4.2.bn1.weight
+ | > Layer missing in the model definition: speaker_encoder.layer4.2.bn1.bias
+ | > Layer missing in the model definition: speaker_encoder.layer4.2.bn1.running_mean
+ | > Layer missing in the model definition: speaker_encoder.layer4.2.bn1.running_var
+ | > Layer missing in the model definition: speaker_encoder.layer4.2.bn1.num_batches_tracked
+ | > Layer missing in the model definition: speaker_encoder.layer4.2.conv2.weight
+ | > Layer missing in the model definition: speaker_encoder.layer4.2.bn2.weight
+ | > Layer missing in the model definition: speaker_encoder.layer4.2.bn2.bias
+ | > Layer missing in the model definition: speaker_encoder.layer4.2.bn2.running_mean
+ | > Layer missing in the model definition: speaker_encoder.layer4.2.bn2.running_var
+ | > Layer missing in the model definition: speaker_encoder.layer4.2.bn2.num_batches_tracked
+ | > Layer missing in the model definition: speaker_encoder.layer4.2.se.fc.0.weight
+ | > Layer missing in the model definition: speaker_encoder.layer4.2.se.fc.0.bias
+ | > Layer missing in the model definition: speaker_encoder.layer4.2.se.fc.2.weight
+ | > Layer missing in the model definition: speaker_encoder.layer4.2.se.fc.2.bias
+ | > Layer missing in the model definition: speaker_encoder.torch_spec.0.filter
+ | > Layer missing in the model definition: speaker_encoder.torch_spec.1.spectrogram.window
+ | > Layer missing in the model definition: speaker_encoder.torch_spec.1.mel_scale.fb
+ | > Layer missing in the model definition: speaker_encoder.attention.0.weight
+ | > Layer missing in the model definition: speaker_encoder.attention.0.bias
+ | > Layer missing in the model definition: speaker_encoder.attention.2.weight
+ | > Layer missing in the model definition: speaker_encoder.attention.2.bias
+ | > Layer missing in the model definition: speaker_encoder.attention.2.running_mean
+ | > Layer missing in the model definition: speaker_encoder.attention.2.running_var
+ | > Layer missing in the model definition: speaker_encoder.attention.2.num_batches_tracked
+ | > Layer missing in the model definition: speaker_encoder.attention.3.weight
+ | > Layer missing in the model definition: speaker_encoder.attention.3.bias
+ | > Layer missing in the model definition: speaker_encoder.fc.weight
+ | > Layer missing in the model definition: speaker_encoder.fc.bias
+ | > Layer missing in the model definition: posterior_encoder.enc.in_layers.0.weight_g
+ | > Layer missing in the model definition: posterior_encoder.enc.in_layers.0.weight_v
+ | > Layer missing in the model definition: posterior_encoder.enc.in_layers.1.weight_g
+ | > Layer missing in the model definition: posterior_encoder.enc.in_layers.1.weight_v
+ | > Layer missing in the model definition: posterior_encoder.enc.in_layers.2.weight_g
+ | > Layer missing in the model definition: posterior_encoder.enc.in_layers.2.weight_v
+ | > Layer missing in the model definition: posterior_encoder.enc.in_layers.3.weight_g
+ | > Layer missing in the model definition: posterior_encoder.enc.in_layers.3.weight_v
+ | > Layer missing in the model definition: posterior_encoder.enc.in_layers.4.weight_g
+ | > Layer missing in the model definition: posterior_encoder.enc.in_layers.4.weight_v
+ | > Layer missing in the model definition: posterior_encoder.enc.in_layers.5.weight_g
+ | > Layer missing in the model definition: posterior_encoder.enc.in_layers.5.weight_v
+ | > Layer missing in the model definition: posterior_encoder.enc.in_layers.6.weight_g
+ | > Layer missing in the model definition: posterior_encoder.enc.in_layers.6.weight_v
+ | > Layer missing in the model definition: posterior_encoder.enc.in_layers.7.weight_g
+ | > Layer missing in the model definition: posterior_encoder.enc.in_layers.7.weight_v
+ | > Layer missing in the model definition: posterior_encoder.enc.in_layers.8.weight_g
+ | > Layer missing in the model definition: posterior_encoder.enc.in_layers.8.weight_v
+ | > Layer missing in the model definition: posterior_encoder.enc.in_layers.9.weight_g
+ | > Layer missing in the model definition: posterior_encoder.enc.in_layers.9.weight_v
+ | > Layer missing in the model definition: posterior_encoder.enc.in_layers.10.weight_g
+ | > Layer missing in the model definition: posterior_encoder.enc.in_layers.10.weight_v
+ | > Layer missing in the model definition: posterior_encoder.enc.in_layers.11.weight_g
+ | > Layer missing in the model definition: posterior_encoder.enc.in_layers.11.weight_v
+ | > Layer missing in the model definition: posterior_encoder.enc.in_layers.12.weight_g
+ | > Layer missing in the model definition: posterior_encoder.enc.in_layers.12.weight_v
+ | > Layer missing in the model definition: posterior_encoder.enc.in_layers.13.weight_g
+ | > Layer missing in the model definition: posterior_encoder.enc.in_layers.13.weight_v
+ | > Layer missing in the model definition: posterior_encoder.enc.in_layers.14.weight_g
+ | > Layer missing in the model definition: posterior_encoder.enc.in_layers.14.weight_v
+ | > Layer missing in the model definition: posterior_encoder.enc.in_layers.15.weight_g
+ | > Layer missing in the model definition: posterior_encoder.enc.in_layers.15.weight_v
+ | > Layer missing in the model definition: posterior_encoder.enc.res_skip_layers.0.weight_g
+ | > Layer missing in the model definition: posterior_encoder.enc.res_skip_layers.0.weight_v
+ | > Layer missing in the model definition: posterior_encoder.enc.res_skip_layers.1.weight_g
+ | > Layer missing in the model definition: posterior_encoder.enc.res_skip_layers.1.weight_v
+ | > Layer missing in the model definition: posterior_encoder.enc.res_skip_layers.2.weight_g
+ | > Layer missing in the model definition: posterior_encoder.enc.res_skip_layers.2.weight_v
+ | > Layer missing in the model definition: posterior_encoder.enc.res_skip_layers.3.weight_g
+ | > Layer missing in the model definition: posterior_encoder.enc.res_skip_layers.3.weight_v
+ | > Layer missing in the model definition: posterior_encoder.enc.res_skip_layers.4.weight_g
+ | > Layer missing in the model definition: posterior_encoder.enc.res_skip_layers.4.weight_v
+ | > Layer missing in the model definition: posterior_encoder.enc.res_skip_layers.5.weight_g
+ | > Layer missing in the model definition: posterior_encoder.enc.res_skip_layers.5.weight_v
+ | > Layer missing in the model definition: posterior_encoder.enc.res_skip_layers.6.weight_g
+ | > Layer missing in the model definition: posterior_encoder.enc.res_skip_layers.6.weight_v
+ | > Layer missing in the model definition: posterior_encoder.enc.res_skip_layers.7.weight_g
+ | > Layer missing in the model definition: posterior_encoder.enc.res_skip_layers.7.weight_v
+ | > Layer missing in the model definition: posterior_encoder.enc.res_skip_layers.8.weight_g
+ | > Layer missing in the model definition: posterior_encoder.enc.res_skip_layers.8.weight_v
+ | > Layer missing in the model definition: posterior_encoder.enc.res_skip_layers.9.weight_g
+ | > Layer missing in the model definition: posterior_encoder.enc.res_skip_layers.9.weight_v
+ | > Layer missing in the model definition: posterior_encoder.enc.res_skip_layers.10.weight_g
+ | > Layer missing in the model definition: posterior_encoder.enc.res_skip_layers.10.weight_v
+ | > Layer missing in the model definition: posterior_encoder.enc.res_skip_layers.11.weight_g
+ | > Layer missing in the model definition: posterior_encoder.enc.res_skip_layers.11.weight_v
+ | > Layer missing in the model definition: posterior_encoder.enc.res_skip_layers.12.weight_g
+ | > Layer missing in the model definition: posterior_encoder.enc.res_skip_layers.12.weight_v
+ | > Layer missing in the model definition: posterior_encoder.enc.res_skip_layers.13.weight_g
+ | > Layer missing in the model definition: posterior_encoder.enc.res_skip_layers.13.weight_v
+ | > Layer missing in the model definition: posterior_encoder.enc.res_skip_layers.14.weight_g
+ | > Layer missing in the model definition: posterior_encoder.enc.res_skip_layers.14.weight_v
+ | > Layer missing in the model definition: posterior_encoder.enc.res_skip_layers.15.weight_g
+ | > Layer missing in the model definition: posterior_encoder.enc.res_skip_layers.15.weight_v
+ | > Layer missing in the model definition: posterior_encoder.enc.cond_layer.weight_g
+ | > Layer missing in the model definition: posterior_encoder.enc.cond_layer.weight_v
+ | > Layer missing in the model definition: flow.flows.0.enc.in_layers.0.weight_g
+ | > Layer missing in the model definition: flow.flows.0.enc.in_layers.0.weight_v
+ | > Layer missing in the model definition: flow.flows.0.enc.in_layers.1.weight_g
+ | > Layer missing in the model definition: flow.flows.0.enc.in_layers.1.weight_v
+ | > Layer missing in the model definition: flow.flows.0.enc.in_layers.2.weight_g
+ | > Layer missing in the model definition: flow.flows.0.enc.in_layers.2.weight_v
+ | > Layer missing in the model definition: flow.flows.0.enc.in_layers.3.weight_g
+ | > Layer missing in the model definition: flow.flows.0.enc.in_layers.3.weight_v
+ | > Layer missing in the model definition: flow.flows.0.enc.res_skip_layers.0.weight_g
+ | > Layer missing in the model definition: flow.flows.0.enc.res_skip_layers.0.weight_v
+ | > Layer missing in the model definition: flow.flows.0.enc.res_skip_layers.1.weight_g
+ | > Layer missing in the model definition: flow.flows.0.enc.res_skip_layers.1.weight_v
+ | > Layer missing in the model definition: flow.flows.0.enc.res_skip_layers.2.weight_g
+ | > Layer missing in the model definition: flow.flows.0.enc.res_skip_layers.2.weight_v
+ | > Layer missing in the model definition: flow.flows.0.enc.res_skip_layers.3.weight_g
+ | > Layer missing in the model definition: flow.flows.0.enc.res_skip_layers.3.weight_v
+ | > Layer missing in the model definition: flow.flows.0.enc.cond_layer.weight_g
+ | > Layer missing in the model definition: flow.flows.0.enc.cond_layer.weight_v
+ | > Layer missing in the model definition: flow.flows.1.enc.in_layers.0.weight_g
+ | > Layer missing in the model definition: flow.flows.1.enc.in_layers.0.weight_v
+ | > Layer missing in the model definition: flow.flows.1.enc.in_layers.1.weight_g
+ | > Layer missing in the model definition: flow.flows.1.enc.in_layers.1.weight_v
+ | > Layer missing in the model definition: flow.flows.1.enc.in_layers.2.weight_g
+ | > Layer missing in the model definition: flow.flows.1.enc.in_layers.2.weight_v
+ | > Layer missing in the model definition: flow.flows.1.enc.in_layers.3.weight_g
+ | > Layer missing in the model definition: flow.flows.1.enc.in_layers.3.weight_v
+ | > Layer missing in the model definition: flow.flows.1.enc.res_skip_layers.0.weight_g
+ | > Layer missing in the model definition: flow.flows.1.enc.res_skip_layers.0.weight_v
+ | > Layer missing in the model definition: flow.flows.1.enc.res_skip_layers.1.weight_g
+ | > Layer missing in the model definition: flow.flows.1.enc.res_skip_layers.1.weight_v
+ | > Layer missing in the model definition: flow.flows.1.enc.res_skip_layers.2.weight_g
+ | > Layer missing in the model definition: flow.flows.1.enc.res_skip_layers.2.weight_v
+ | > Layer missing in the model definition: flow.flows.1.enc.res_skip_layers.3.weight_g
+ | > Layer missing in the model definition: flow.flows.1.enc.res_skip_layers.3.weight_v
+ | > Layer missing in the model definition: flow.flows.1.enc.cond_layer.weight_g
+ | > Layer missing in the model definition: flow.flows.1.enc.cond_layer.weight_v
+ | > Layer missing in the model definition: flow.flows.2.enc.in_layers.0.weight_g
+ | > Layer missing in the model definition: flow.flows.2.enc.in_layers.0.weight_v
+ | > Layer missing in the model definition: flow.flows.2.enc.in_layers.1.weight_g
+ | > Layer missing in the model definition: flow.flows.2.enc.in_layers.1.weight_v
+ | > Layer missing in the model definition: flow.flows.2.enc.in_layers.2.weight_g
+ | > Layer missing in the model definition: flow.flows.2.enc.in_layers.2.weight_v
+ | > Layer missing in the model definition: flow.flows.2.enc.in_layers.3.weight_g
+ | > Layer missing in the model definition: flow.flows.2.enc.in_layers.3.weight_v
+ | > Layer missing in the model definition: flow.flows.2.enc.res_skip_layers.0.weight_g
+ | > Layer missing in the model definition: flow.flows.2.enc.res_skip_layers.0.weight_v
+ | > Layer missing in the model definition: flow.flows.2.enc.res_skip_layers.1.weight_g
+ | > Layer missing in the model definition: flow.flows.2.enc.res_skip_layers.1.weight_v
+ | > Layer missing in the model definition: flow.flows.2.enc.res_skip_layers.2.weight_g
+ | > Layer missing in the model definition: flow.flows.2.enc.res_skip_layers.2.weight_v
+ | > Layer missing in the model definition: flow.flows.2.enc.res_skip_layers.3.weight_g
+ | > Layer missing in the model definition: flow.flows.2.enc.res_skip_layers.3.weight_v
+ | > Layer missing in the model definition: flow.flows.2.enc.cond_layer.weight_g
+ | > Layer missing in the model definition: flow.flows.2.enc.cond_layer.weight_v
+ | > Layer missing in the model definition: flow.flows.3.enc.in_layers.0.weight_g
+ | > Layer missing in the model definition: flow.flows.3.enc.in_layers.0.weight_v
+ | > Layer missing in the model definition: flow.flows.3.enc.in_layers.1.weight_g
+ | > Layer missing in the model definition: flow.flows.3.enc.in_layers.1.weight_v
+ | > Layer missing in the model definition: flow.flows.3.enc.in_layers.2.weight_g
+ | > Layer missing in the model definition: flow.flows.3.enc.in_layers.2.weight_v
+ | > Layer missing in the model definition: flow.flows.3.enc.in_layers.3.weight_g
+ | > Layer missing in the model definition: flow.flows.3.enc.in_layers.3.weight_v
+ | > Layer missing in the model definition: flow.flows.3.enc.res_skip_layers.0.weight_g
+ | > Layer missing in the model definition: flow.flows.3.enc.res_skip_layers.0.weight_v
+ | > Layer missing in the model definition: flow.flows.3.enc.res_skip_layers.1.weight_g
+ | > Layer missing in the model definition: flow.flows.3.enc.res_skip_layers.1.weight_v
+ | > Layer missing in the model definition: flow.flows.3.enc.res_skip_layers.2.weight_g
+ | > Layer missing in the model definition: flow.flows.3.enc.res_skip_layers.2.weight_v
+ | > Layer missing in the model definition: flow.flows.3.enc.res_skip_layers.3.weight_g
+ | > Layer missing in the model definition: flow.flows.3.enc.res_skip_layers.3.weight_v
+ | > Layer missing in the model definition: flow.flows.3.enc.cond_layer.weight_g
+ | > Layer missing in the model definition: flow.flows.3.enc.cond_layer.weight_v
+ | > Layer missing in the model definition: waveform_decoder.ups.0.weight_g
+ | > Layer missing in the model definition: waveform_decoder.ups.0.weight_v
+ | > Layer missing in the model definition: waveform_decoder.ups.1.weight_g
+ | > Layer missing in the model definition: waveform_decoder.ups.1.weight_v
+ | > Layer missing in the model definition: waveform_decoder.ups.2.weight_g
+ | > Layer missing in the model definition: waveform_decoder.ups.2.weight_v
+ | > Layer missing in the model definition: waveform_decoder.ups.3.weight_g
+ | > Layer missing in the model definition: waveform_decoder.ups.3.weight_v
+ | > Layer missing in the model definition: waveform_decoder.resblocks.0.convs.0.weight_g
+ | > Layer missing in the model definition: waveform_decoder.resblocks.0.convs.0.weight_v
+ | > Layer missing in the model definition: waveform_decoder.resblocks.0.convs.1.weight_g
+ | > Layer missing in the model definition: waveform_decoder.resblocks.0.convs.1.weight_v
+ | > Layer missing in the model definition: waveform_decoder.resblocks.1.convs.0.weight_g
+ | > Layer missing in the model definition: waveform_decoder.resblocks.1.convs.0.weight_v
+ | > Layer missing in the model definition: waveform_decoder.resblocks.1.convs.1.weight_g
+ | > Layer missing in the model definition: waveform_decoder.resblocks.1.convs.1.weight_v
+ | > Layer missing in the model definition: waveform_decoder.resblocks.2.convs.0.weight_g
+ | > Layer missing in the model definition: waveform_decoder.resblocks.2.convs.0.weight_v
+ | > Layer missing in the model definition: waveform_decoder.resblocks.2.convs.1.weight_g
+ | > Layer missing in the model definition: waveform_decoder.resblocks.2.convs.1.weight_v
+ | > Layer missing in the model definition: waveform_decoder.resblocks.3.convs.0.weight_g
+ | > Layer missing in the model definition: waveform_decoder.resblocks.3.convs.0.weight_v
+ | > Layer missing in the model definition: waveform_decoder.resblocks.3.convs.1.weight_g
+ | > Layer missing in the model definition: waveform_decoder.resblocks.3.convs.1.weight_v
+ | > Layer missing in the model definition: waveform_decoder.resblocks.4.convs.0.weight_g
+ | > Layer missing in the model definition: waveform_decoder.resblocks.4.convs.0.weight_v
+ | > Layer missing in the model definition: waveform_decoder.resblocks.4.convs.1.weight_g
+ | > Layer missing in the model definition: waveform_decoder.resblocks.4.convs.1.weight_v
+ | > Layer missing in the model definition: waveform_decoder.resblocks.5.convs.0.weight_g
+ | > Layer missing in the model definition: waveform_decoder.resblocks.5.convs.0.weight_v
+ | > Layer missing in the model definition: waveform_decoder.resblocks.5.convs.1.weight_g
+ | > Layer missing in the model definition: waveform_decoder.resblocks.5.convs.1.weight_v
+ | > Layer missing in the model definition: waveform_decoder.resblocks.6.convs.0.weight_g
+ | > Layer missing in the model definition: waveform_decoder.resblocks.6.convs.0.weight_v
+ | > Layer missing in the model definition: waveform_decoder.resblocks.6.convs.1.weight_g
+ | > Layer missing in the model definition: waveform_decoder.resblocks.6.convs.1.weight_v
+ | > Layer missing in the model definition: waveform_decoder.resblocks.7.convs.0.weight_g
+ | > Layer missing in the model definition: waveform_decoder.resblocks.7.convs.0.weight_v
+ | > Layer missing in the model definition: waveform_decoder.resblocks.7.convs.1.weight_g
+ | > Layer missing in the model definition: waveform_decoder.resblocks.7.convs.1.weight_v
+ | > Layer missing in the model definition: waveform_decoder.resblocks.8.convs.0.weight_g
+ | > Layer missing in the model definition: waveform_decoder.resblocks.8.convs.0.weight_v
+ | > Layer missing in the model definition: waveform_decoder.resblocks.8.convs.1.weight_g
+ | > Layer missing in the model definition: waveform_decoder.resblocks.8.convs.1.weight_v
+ | > Layer missing in the model definition: waveform_decoder.resblocks.9.convs.0.weight_g
+ | > Layer missing in the model definition: waveform_decoder.resblocks.9.convs.0.weight_v
+ | > Layer missing in the model definition: waveform_decoder.resblocks.9.convs.1.weight_g
+ | > Layer missing in the model definition: waveform_decoder.resblocks.9.convs.1.weight_v
+ | > Layer missing in the model definition: waveform_decoder.resblocks.10.convs.0.weight_g
+ | > Layer missing in the model definition: waveform_decoder.resblocks.10.convs.0.weight_v
+ | > Layer missing in the model definition: waveform_decoder.resblocks.10.convs.1.weight_g
+ | > Layer missing in the model definition: waveform_decoder.resblocks.10.convs.1.weight_v
+ | > Layer missing in the model definition: waveform_decoder.resblocks.11.convs.0.weight_g
+ | > Layer missing in the model definition: waveform_decoder.resblocks.11.convs.0.weight_v
+ | > Layer missing in the model definition: waveform_decoder.resblocks.11.convs.1.weight_g
+ | > Layer missing in the model definition: waveform_decoder.resblocks.11.convs.1.weight_v
+ | > Layer missing in the model definition: disc.nets.0.convs.0.weight_g
+ | > Layer missing in the model definition: disc.nets.0.convs.0.weight_v
+ | > Layer missing in the model definition: disc.nets.0.convs.1.weight_g
+ | > Layer missing in the model definition: disc.nets.0.convs.1.weight_v
+ | > Layer missing in the model definition: disc.nets.0.convs.2.weight_g
+ | > Layer missing in the model definition: disc.nets.0.convs.2.weight_v
+ | > Layer missing in the model definition: disc.nets.0.convs.3.weight_g
+ | > Layer missing in the model definition: disc.nets.0.convs.3.weight_v
+ | > Layer missing in the model definition: disc.nets.0.convs.4.weight_g
+ | > Layer missing in the model definition: disc.nets.0.convs.4.weight_v
+ | > Layer missing in the model definition: disc.nets.0.convs.5.weight_g
+ | > Layer missing in the model definition: disc.nets.0.convs.5.weight_v
+ | > Layer missing in the model definition: disc.nets.0.conv_post.weight_g
+ | > Layer missing in the model definition: disc.nets.0.conv_post.weight_v
+ | > Layer missing in the model definition: disc.nets.1.convs.0.weight_g
+ | > Layer missing in the model definition: disc.nets.1.convs.0.weight_v
+ | > Layer missing in the model definition: disc.nets.1.convs.1.weight_g
+ | > Layer missing in the model definition: disc.nets.1.convs.1.weight_v
+ | > Layer missing in the model definition: disc.nets.1.convs.2.weight_g
+ | > Layer missing in the model definition: disc.nets.1.convs.2.weight_v
+ | > Layer missing in the model definition: disc.nets.1.convs.3.weight_g
+ | > Layer missing in the model definition: disc.nets.1.convs.3.weight_v
+ | > Layer missing in the model definition: disc.nets.1.convs.4.weight_g
+ | > Layer missing in the model definition: disc.nets.1.convs.4.weight_v
+ | > Layer missing in the model definition: disc.nets.1.conv_post.weight_g
+ | > Layer missing in the model definition: disc.nets.1.conv_post.weight_v
+ | > Layer missing in the model definition: disc.nets.2.convs.0.weight_g
+ | > Layer missing in the model definition: disc.nets.2.convs.0.weight_v
+ | > Layer missing in the model definition: disc.nets.2.convs.1.weight_g
+ | > Layer missing in the model definition: disc.nets.2.convs.1.weight_v
+ | > Layer missing in the model definition: disc.nets.2.convs.2.weight_g
+ | > Layer missing in the model definition: disc.nets.2.convs.2.weight_v
+ | > Layer missing in the model definition: disc.nets.2.convs.3.weight_g
+ | > Layer missing in the model definition: disc.nets.2.convs.3.weight_v
+ | > Layer missing in the model definition: disc.nets.2.convs.4.weight_g
+ | > Layer missing in the model definition: disc.nets.2.convs.4.weight_v
+ | > Layer missing in the model definition: disc.nets.2.conv_post.weight_g
+ | > Layer missing in the model definition: disc.nets.2.conv_post.weight_v
+ | > Layer missing in the model definition: disc.nets.3.convs.0.weight_g
+ | > Layer missing in the model definition: disc.nets.3.convs.0.weight_v
+ | > Layer missing in the model definition: disc.nets.3.convs.1.weight_g
+ | > Layer missing in the model definition: disc.nets.3.convs.1.weight_v
+ | > Layer missing in the model definition: disc.nets.3.convs.2.weight_g
+ | > Layer missing in the model definition: disc.nets.3.convs.2.weight_v
+ | > Layer missing in the model definition: disc.nets.3.convs.3.weight_g
+ | > Layer missing in the model definition: disc.nets.3.convs.3.weight_v
+ | > Layer missing in the model definition: disc.nets.3.convs.4.weight_g
+ | > Layer missing in the model definition: disc.nets.3.convs.4.weight_v
+ | > Layer missing in the model definition: disc.nets.3.conv_post.weight_g
+ | > Layer missing in the model definition: disc.nets.3.conv_post.weight_v
+ | > Layer missing in the model definition: disc.nets.4.convs.0.weight_g
+ | > Layer missing in the model definition: disc.nets.4.convs.0.weight_v
+ | > Layer missing in the model definition: disc.nets.4.convs.1.weight_g
+ | > Layer missing in the model definition: disc.nets.4.convs.1.weight_v
+ | > Layer missing in the model definition: disc.nets.4.convs.2.weight_g
+ | > Layer missing in the model definition: disc.nets.4.convs.2.weight_v
+ | > Layer missing in the model definition: disc.nets.4.convs.3.weight_g
+ | > Layer missing in the model definition: disc.nets.4.convs.3.weight_v
+ | > Layer missing in the model definition: disc.nets.4.convs.4.weight_g
+ | > Layer missing in the model definition: disc.nets.4.convs.4.weight_v
+ | > Layer missing in the model definition: disc.nets.4.conv_post.weight_g
+ | > Layer missing in the model definition: disc.nets.4.conv_post.weight_v
+ | > Layer missing in the model definition: disc.nets.5.convs.0.weight_g
+ | > Layer missing in the model definition: disc.nets.5.convs.0.weight_v
+ | > Layer missing in the model definition: disc.nets.5.convs.1.weight_g
+ | > Layer missing in the model definition: disc.nets.5.convs.1.weight_v
+ | > Layer missing in the model definition: disc.nets.5.convs.2.weight_g
+ | > Layer missing in the model definition: disc.nets.5.convs.2.weight_v
+ | > Layer missing in the model definition: disc.nets.5.convs.3.weight_g
+ | > Layer missing in the model definition: disc.nets.5.convs.3.weight_v
+ | > Layer missing in the model definition: disc.nets.5.convs.4.weight_g
+ | > Layer missing in the model definition: disc.nets.5.convs.4.weight_v
+ | > Layer missing in the model definition: disc.nets.5.conv_post.weight_g
+ | > Layer missing in the model definition: disc.nets.5.conv_post.weight_v
+ | > Layer missing in the checkpoint: posterior_encoder.enc.in_layers.0.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: posterior_encoder.enc.in_layers.0.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: posterior_encoder.enc.in_layers.1.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: posterior_encoder.enc.in_layers.1.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: posterior_encoder.enc.in_layers.2.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: posterior_encoder.enc.in_layers.2.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: posterior_encoder.enc.in_layers.3.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: posterior_encoder.enc.in_layers.3.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: posterior_encoder.enc.in_layers.4.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: posterior_encoder.enc.in_layers.4.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: posterior_encoder.enc.in_layers.5.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: posterior_encoder.enc.in_layers.5.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: posterior_encoder.enc.in_layers.6.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: posterior_encoder.enc.in_layers.6.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: posterior_encoder.enc.in_layers.7.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: posterior_encoder.enc.in_layers.7.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: posterior_encoder.enc.in_layers.8.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: posterior_encoder.enc.in_layers.8.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: posterior_encoder.enc.in_layers.9.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: posterior_encoder.enc.in_layers.9.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: posterior_encoder.enc.in_layers.10.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: posterior_encoder.enc.in_layers.10.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: posterior_encoder.enc.in_layers.11.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: posterior_encoder.enc.in_layers.11.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: posterior_encoder.enc.in_layers.12.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: posterior_encoder.enc.in_layers.12.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: posterior_encoder.enc.in_layers.13.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: posterior_encoder.enc.in_layers.13.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: posterior_encoder.enc.in_layers.14.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: posterior_encoder.enc.in_layers.14.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: posterior_encoder.enc.in_layers.15.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: posterior_encoder.enc.in_layers.15.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: posterior_encoder.enc.res_skip_layers.0.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: posterior_encoder.enc.res_skip_layers.0.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: posterior_encoder.enc.res_skip_layers.1.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: posterior_encoder.enc.res_skip_layers.1.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: posterior_encoder.enc.res_skip_layers.2.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: posterior_encoder.enc.res_skip_layers.2.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: posterior_encoder.enc.res_skip_layers.3.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: posterior_encoder.enc.res_skip_layers.3.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: posterior_encoder.enc.res_skip_layers.4.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: posterior_encoder.enc.res_skip_layers.4.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: posterior_encoder.enc.res_skip_layers.5.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: posterior_encoder.enc.res_skip_layers.5.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: posterior_encoder.enc.res_skip_layers.6.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: posterior_encoder.enc.res_skip_layers.6.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: posterior_encoder.enc.res_skip_layers.7.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: posterior_encoder.enc.res_skip_layers.7.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: posterior_encoder.enc.res_skip_layers.8.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: posterior_encoder.enc.res_skip_layers.8.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: posterior_encoder.enc.res_skip_layers.9.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: posterior_encoder.enc.res_skip_layers.9.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: posterior_encoder.enc.res_skip_layers.10.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: posterior_encoder.enc.res_skip_layers.10.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: posterior_encoder.enc.res_skip_layers.11.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: posterior_encoder.enc.res_skip_layers.11.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: posterior_encoder.enc.res_skip_layers.12.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: posterior_encoder.enc.res_skip_layers.12.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: posterior_encoder.enc.res_skip_layers.13.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: posterior_encoder.enc.res_skip_layers.13.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: posterior_encoder.enc.res_skip_layers.14.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: posterior_encoder.enc.res_skip_layers.14.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: posterior_encoder.enc.res_skip_layers.15.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: posterior_encoder.enc.res_skip_layers.15.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: posterior_encoder.enc.cond_layer.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: posterior_encoder.enc.cond_layer.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: flow.flows.0.enc.in_layers.0.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: flow.flows.0.enc.in_layers.0.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: flow.flows.0.enc.in_layers.1.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: flow.flows.0.enc.in_layers.1.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: flow.flows.0.enc.in_layers.2.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: flow.flows.0.enc.in_layers.2.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: flow.flows.0.enc.in_layers.3.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: flow.flows.0.enc.in_layers.3.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: flow.flows.0.enc.res_skip_layers.0.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: flow.flows.0.enc.res_skip_layers.0.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: flow.flows.0.enc.res_skip_layers.1.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: flow.flows.0.enc.res_skip_layers.1.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: flow.flows.0.enc.res_skip_layers.2.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: flow.flows.0.enc.res_skip_layers.2.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: flow.flows.0.enc.res_skip_layers.3.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: flow.flows.0.enc.res_skip_layers.3.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: flow.flows.0.enc.cond_layer.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: flow.flows.0.enc.cond_layer.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: flow.flows.1.enc.in_layers.0.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: flow.flows.1.enc.in_layers.0.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: flow.flows.1.enc.in_layers.1.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: flow.flows.1.enc.in_layers.1.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: flow.flows.1.enc.in_layers.2.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: flow.flows.1.enc.in_layers.2.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: flow.flows.1.enc.in_layers.3.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: flow.flows.1.enc.in_layers.3.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: flow.flows.1.enc.res_skip_layers.0.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: flow.flows.1.enc.res_skip_layers.0.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: flow.flows.1.enc.res_skip_layers.1.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: flow.flows.1.enc.res_skip_layers.1.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: flow.flows.1.enc.res_skip_layers.2.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: flow.flows.1.enc.res_skip_layers.2.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: flow.flows.1.enc.res_skip_layers.3.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: flow.flows.1.enc.res_skip_layers.3.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: flow.flows.1.enc.cond_layer.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: flow.flows.1.enc.cond_layer.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: flow.flows.2.enc.in_layers.0.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: flow.flows.2.enc.in_layers.0.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: flow.flows.2.enc.in_layers.1.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: flow.flows.2.enc.in_layers.1.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: flow.flows.2.enc.in_layers.2.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: flow.flows.2.enc.in_layers.2.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: flow.flows.2.enc.in_layers.3.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: flow.flows.2.enc.in_layers.3.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: flow.flows.2.enc.res_skip_layers.0.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: flow.flows.2.enc.res_skip_layers.0.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: flow.flows.2.enc.res_skip_layers.1.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: flow.flows.2.enc.res_skip_layers.1.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: flow.flows.2.enc.res_skip_layers.2.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: flow.flows.2.enc.res_skip_layers.2.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: flow.flows.2.enc.res_skip_layers.3.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: flow.flows.2.enc.res_skip_layers.3.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: flow.flows.2.enc.cond_layer.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: flow.flows.2.enc.cond_layer.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: flow.flows.3.enc.in_layers.0.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: flow.flows.3.enc.in_layers.0.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: flow.flows.3.enc.in_layers.1.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: flow.flows.3.enc.in_layers.1.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: flow.flows.3.enc.in_layers.2.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: flow.flows.3.enc.in_layers.2.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: flow.flows.3.enc.in_layers.3.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: flow.flows.3.enc.in_layers.3.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: flow.flows.3.enc.res_skip_layers.0.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: flow.flows.3.enc.res_skip_layers.0.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: flow.flows.3.enc.res_skip_layers.1.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: flow.flows.3.enc.res_skip_layers.1.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: flow.flows.3.enc.res_skip_layers.2.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: flow.flows.3.enc.res_skip_layers.2.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: flow.flows.3.enc.res_skip_layers.3.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: flow.flows.3.enc.res_skip_layers.3.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: flow.flows.3.enc.cond_layer.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: flow.flows.3.enc.cond_layer.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: waveform_decoder.ups.0.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: waveform_decoder.ups.0.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: waveform_decoder.ups.1.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: waveform_decoder.ups.1.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: waveform_decoder.ups.2.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: waveform_decoder.ups.2.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: waveform_decoder.ups.3.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: waveform_decoder.ups.3.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: waveform_decoder.resblocks.0.convs.0.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: waveform_decoder.resblocks.0.convs.0.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: waveform_decoder.resblocks.0.convs.1.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: waveform_decoder.resblocks.0.convs.1.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: waveform_decoder.resblocks.1.convs.0.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: waveform_decoder.resblocks.1.convs.0.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: waveform_decoder.resblocks.1.convs.1.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: waveform_decoder.resblocks.1.convs.1.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: waveform_decoder.resblocks.2.convs.0.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: waveform_decoder.resblocks.2.convs.0.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: waveform_decoder.resblocks.2.convs.1.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: waveform_decoder.resblocks.2.convs.1.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: waveform_decoder.resblocks.3.convs.0.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: waveform_decoder.resblocks.3.convs.0.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: waveform_decoder.resblocks.3.convs.1.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: waveform_decoder.resblocks.3.convs.1.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: waveform_decoder.resblocks.4.convs.0.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: waveform_decoder.resblocks.4.convs.0.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: waveform_decoder.resblocks.4.convs.1.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: waveform_decoder.resblocks.4.convs.1.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: waveform_decoder.resblocks.5.convs.0.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: waveform_decoder.resblocks.5.convs.0.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: waveform_decoder.resblocks.5.convs.1.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: waveform_decoder.resblocks.5.convs.1.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: waveform_decoder.resblocks.6.convs.0.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: waveform_decoder.resblocks.6.convs.0.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: waveform_decoder.resblocks.6.convs.1.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: waveform_decoder.resblocks.6.convs.1.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: waveform_decoder.resblocks.7.convs.0.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: waveform_decoder.resblocks.7.convs.0.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: waveform_decoder.resblocks.7.convs.1.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: waveform_decoder.resblocks.7.convs.1.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: waveform_decoder.resblocks.8.convs.0.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: waveform_decoder.resblocks.8.convs.0.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: waveform_decoder.resblocks.8.convs.1.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: waveform_decoder.resblocks.8.convs.1.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: waveform_decoder.resblocks.9.convs.0.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: waveform_decoder.resblocks.9.convs.0.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: waveform_decoder.resblocks.9.convs.1.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: waveform_decoder.resblocks.9.convs.1.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: waveform_decoder.resblocks.10.convs.0.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: waveform_decoder.resblocks.10.convs.0.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: waveform_decoder.resblocks.10.convs.1.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: waveform_decoder.resblocks.10.convs.1.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: waveform_decoder.resblocks.11.convs.0.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: waveform_decoder.resblocks.11.convs.0.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: waveform_decoder.resblocks.11.convs.1.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: waveform_decoder.resblocks.11.convs.1.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: disc.nets.0.convs.0.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: disc.nets.0.convs.0.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: disc.nets.0.convs.1.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: disc.nets.0.convs.1.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: disc.nets.0.convs.2.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: disc.nets.0.convs.2.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: disc.nets.0.convs.3.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: disc.nets.0.convs.3.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: disc.nets.0.convs.4.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: disc.nets.0.convs.4.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: disc.nets.0.convs.5.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: disc.nets.0.convs.5.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: disc.nets.0.conv_post.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: disc.nets.0.conv_post.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: disc.nets.1.convs.0.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: disc.nets.1.convs.0.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: disc.nets.1.convs.1.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: disc.nets.1.convs.1.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: disc.nets.1.convs.2.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: disc.nets.1.convs.2.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: disc.nets.1.convs.3.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: disc.nets.1.convs.3.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: disc.nets.1.convs.4.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: disc.nets.1.convs.4.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: disc.nets.1.conv_post.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: disc.nets.1.conv_post.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: disc.nets.2.convs.0.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: disc.nets.2.convs.0.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: disc.nets.2.convs.1.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: disc.nets.2.convs.1.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: disc.nets.2.convs.2.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: disc.nets.2.convs.2.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: disc.nets.2.convs.3.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: disc.nets.2.convs.3.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: disc.nets.2.convs.4.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: disc.nets.2.convs.4.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: disc.nets.2.conv_post.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: disc.nets.2.conv_post.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: disc.nets.3.convs.0.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: disc.nets.3.convs.0.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: disc.nets.3.convs.1.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: disc.nets.3.convs.1.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: disc.nets.3.convs.2.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: disc.nets.3.convs.2.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: disc.nets.3.convs.3.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: disc.nets.3.convs.3.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: disc.nets.3.convs.4.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: disc.nets.3.convs.4.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: disc.nets.3.conv_post.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: disc.nets.3.conv_post.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: disc.nets.4.convs.0.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: disc.nets.4.convs.0.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: disc.nets.4.convs.1.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: disc.nets.4.convs.1.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: disc.nets.4.convs.2.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: disc.nets.4.convs.2.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: disc.nets.4.convs.3.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: disc.nets.4.convs.3.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: disc.nets.4.convs.4.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: disc.nets.4.convs.4.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: disc.nets.4.conv_post.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: disc.nets.4.conv_post.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: disc.nets.5.convs.0.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: disc.nets.5.convs.0.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: disc.nets.5.convs.1.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: disc.nets.5.convs.1.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: disc.nets.5.convs.2.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: disc.nets.5.convs.2.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: disc.nets.5.convs.3.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: disc.nets.5.convs.3.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: disc.nets.5.convs.4.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: disc.nets.5.convs.4.parametrizations.weight.original1
+ | > Layer missing in the checkpoint: disc.nets.5.conv_post.parametrizations.weight.original0
+ | > Layer missing in the checkpoint: disc.nets.5.conv_post.parametrizations.weight.original1
+ | > Layer dimention missmatch between model definition and checkpoint: emb_l.weight
+ | > 630 / 899 layers are restored.
+ > Model restored from step 0
+/home/nibiru/.conda/envs/ml_env/lib/python3.11/site-packages/trainer/trainer.py:561: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  self.scaler = torch.cuda.amp.GradScaler()
+
+ > Model has 86816064 parameters
+
+[4m[1m > EPOCH: 0/1000[0m
+ --> /home/nibiru/Documents/sem6project/Speech2/pipeline_v2/checkpoints/yourtts_finetuned/vits_tts-portuguese-March-05-2026_03+30PM-0000000
+
+
+> DataLoader initialization
+| > Tokenizer:
+	| > add_blank: True
+	| > use_eos_bos: False
+	| > use_phonemes: False
+| > Number of instances : 12654
+ | > Preprocessing samples
+ | > Max text length: 106
+ | > Min text length: 4
+ | > Avg text length: 45.269673704414586
+ | 
+ | > Max audio length: 111862.0
+ | > Min audio length: 16100.0
+ | > Avg audio length: 61189.84664107486
+ | > Num. instances discarded samples: 7444
+ | > Batch group size: 0.
+
+[1m > TRAINING (2026-03-05 15:30:59) [0m
+/home/nibiru/.conda/envs/ml_env/lib/python3.11/site-packages/torch/functional.py:681: UserWarning: stft with return_complex=False is deprecated. In a future pytorch release, stft will return complex tensors for all inputs, and return_complex=False will raise an error.
+Note: you can still call torch.view_as_real on the complex output to recover the old return format. (Triggered internally at /pytorch/aten/src/ATen/native/SpectralOps.cpp:875.)
+  return _VF.stft(  # type: ignore[attr-defined]
+/home/nibiru/.conda/envs/ml_env/lib/python3.11/site-packages/TTS/tts/models/vits.py:1273: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast(enabled=False):  # use float32 for the criterion
+/home/nibiru/.conda/envs/ml_env/lib/python3.11/site-packages/TTS/tts/models/vits.py:1284: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast(enabled=False):
+/home/nibiru/.conda/envs/ml_env/lib/python3.11/site-packages/TTS/tts/models/vits.py:1311: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast(enabled=False):  # use float32 for the criterion
+
+[1m   --> TIME: 2026-03-05 15:36:38 -- STEP: 99/5210 -- GLOBAL_STEP: 100[0m
+     | > loss_disc: 2.1766130924224854  (2.1143016526193334)
+     | > loss_disc_real_0: 0.13099217414855957  (0.16349118011015834)
+     | > loss_disc_real_1: 0.16981489956378937  (0.19361249985869486)
+     | > loss_disc_real_2: 0.21206673979759216  (0.1921171427450397)
+     | > loss_disc_real_3: 0.24181300401687622  (0.23149740033679544)
+     | > loss_disc_real_4: 0.3528991937637329  (0.23688390373130036)
+     | > loss_disc_real_5: 0.27290067076683044  (0.2346067914758066)
+     | > loss_0: 2.1766130924224854  (2.1143016526193334)
+     | > grad_norm_0: tensor(45.2738, device='cuda:0')  (tensor(41.7441, device='cuda:0'))
+     | > loss_spk_encoder: -4.8967180252075195  (-4.649753867977799)
+     | > loss_gen: 3.061107873916626  (3.1209993699584344)
+     | > loss_kl: 5.338010311126709  (5.9026988443702155)
+     | > loss_feat: 7.70841121673584  (9.427433206577495)
+     | > loss_mel: 22.00301170349121  (23.683416732633958)
+     | > loss_duration: 2.0008926391601562  (2.2348065063206826)
+     | > amp_scaler: 2.0  (332.949494949495)
+     | > loss_1: 35.21471405029297  (39.71960050409488)
+     | > grad_norm_1: tensor(255.7769, device='cuda:0')  (tensor(390.6657, device='cuda:0'))
+     | > current_lr_0: 5e-05 
+     | > current_lr_1: 5e-05 
+     | > step_time: 0.2689  (2.9414840009477405)
+     | > loader_time: 0.0031  (0.003765151958272916)
+
+
+[1m   --> TIME: 2026-03-05 15:39:08 -- STEP: 199/5210 -- GLOBAL_STEP: 200[0m
+     | > loss_disc: 2.6276330947875977  (2.1332559429820463)
+     | > loss_disc_real_0: 0.09379763156175613  (0.17052054890997745)
+     | > loss_disc_real_1: 0.24088861048221588  (0.20035917665715788)
+     | > loss_disc_real_2: 0.13355688750743866  (0.19114139052716328)
+     | > loss_disc_real_3: 0.21318791806697845  (0.22483535198934718)
+     | > loss_disc_real_4: 0.20542947947978973  (0.2383164459062581)
+     | > loss_disc_real_5: 0.128093421459198  (0.22770096949446741)
+     | > loss_0: 2.6276330947875977  (2.1332559429820463)
+     | > grad_norm_0: tensor(17.3946, device='cuda:0')  (tensor(36.9551, device='cuda:0'))
+     | > loss_spk_encoder: -6.394367694854736  (-4.888610467239844)
+     | > loss_gen: 2.1856634616851807  (3.1303239641477116)
+     | > loss_kl: 4.068722248077393  (5.212367991107195)
+     | > loss_feat: 11.417040824890137  (10.181290401286223)
+     | > loss_mel: 23.78482437133789  (23.69568877483733)
+     | > loss_duration: 1.816161036491394  (2.117624694378531)
+     | > amp_scaler: 2.0  (166.643216080402)
+     | > loss_1: 36.878047943115234  (39.44868509493875)
+     | > grad_norm_1: tensor(335.1460, device='cuda:0')  (tensor(367.2052, device='cuda:0'))
+     | > current_lr_0: 5e-05 
+     | > current_lr_1: 5e-05 
+     | > step_time: 0.2834  (2.2097538691669247)
+     | > loader_time: 0.0026  (0.003384663232007818)
+
+
+[1m   --> TIME: 2026-03-05 15:41:30 -- STEP: 299/5210 -- GLOBAL_STEP: 300[0m
+     | > loss_disc: 3.2471094131469727  (2.09043800551756)
+     | > loss_disc_real_0: 0.8785650134086609  (0.16420192641508222)
+     | > loss_disc_real_1: 0.13995695114135742  (0.1966679451681898)
+     | > loss_disc_real_2: 0.18611931800842285  (0.18483799993742672)
+     | > loss_disc_real_3: 0.2782345116138458  (0.2173961219206503)
+     | > loss_disc_real_4: 0.27610331773757935  (0.23155534463034425)
+     | > loss_disc_real_5: 0.7978466153144836  (0.215466295764548)
+     | > loss_0: 3.2471094131469727  (2.09043800551756)
+     | > grad_norm_0: tensor(30.4060, device='cuda:0')  (tensor(35.3091, device='cuda:0'))
+     | > loss_spk_encoder: -4.2211222648620605  (-5.019777028456983)
+     | > loss_gen: 3.354494094848633  (3.158257614011351)
+     | > loss_kl: 3.0163941383361816  (4.886380585539701)
+     | > loss_feat: 10.392516136169434  (10.528559445537457)
+     | > loss_mel: 21.97818374633789  (23.619365577315016)
+     | > loss_duration: 1.6592832803726196  (2.0575144298897925)
+     | > amp_scaler: 2.0  (111.57859531772576)
+     | > loss_1: 36.179744720458984  (39.23030046954201)
+     | > grad_norm_1: tensor(514.2686, device='cuda:0')  (tensor(379.8316, device='cuda:0'))
+     | > current_lr_0: 5e-05 
+     | > current_lr_1: 5e-05 
+     | > step_time: 9.1644  (1.94590237467584)
+     | > loader_time: 0.0037  (0.0033874583483539697)
+
+
+[1m   --> TIME: 2026-03-05 15:43:50 -- STEP: 399/5210 -- GLOBAL_STEP: 400[0m
+     | > loss_disc: 1.8432646989822388  (2.1084643623285144)
+     | > loss_disc_real_0: 0.08772731572389603  (0.16326271392694452)
+     | > loss_disc_real_1: 0.1466396600008011  (0.19496174471308114)
+     | > loss_disc_real_2: 0.11914950609207153  (0.18223634560155988)
+     | > loss_disc_real_3: 0.24515311419963837  (0.22344034070844646)
+     | > loss_disc_real_4: 0.14326663315296173  (0.23217867694813804)
+     | > loss_disc_real_5: 0.32072827219963074  (0.22598103364756839)
+     | > loss_0: 1.8432646989822388  (2.1084643623285144)
+     | > grad_norm_0: tensor(20.0144, device='cuda:0')  (tensor(36.1749, device='cuda:0'))
+     | > loss_spk_encoder: -6.129512786865234  (-5.110370948499907)
+     | > loss_gen: 3.1648924350738525  (3.142782584766399)
+     | > loss_kl: 4.445986747741699  (4.701865219532098)
+     | > loss_feat: 8.825223922729492  (10.504458920997486)
+     | > loss_mel: 26.266090393066406  (23.524476283176202)
+     | > loss_duration: 1.783234715461731  (1.9959778128411207)
+     | > amp_scaler: 2.0  (84.11528822055138)
+     | > loss_1: 38.35591506958008  (38.759189677417716)
+     | > grad_norm_1: tensor(540.6083, device='cuda:0')  (tensor(393.1117, device='cuda:0'))
+     | > current_lr_0: 5e-05 
+     | > current_lr_1: 5e-05 
+     | > step_time: 0.274  (1.8049054235444033)
+     | > loader_time: 0.0029  (0.0033780769596721293)
+
+
+[1m   --> TIME: 2026-03-05 15:45:37 -- STEP: 499/5210 -- GLOBAL_STEP: 500[0m
+     | > loss_disc: 1.5361143350601196  (2.1039286120860083)
+     | > loss_disc_real_0: 0.2947031557559967  (0.1654307658061802)
+     | > loss_disc_real_1: 0.10055693238973618  (0.19309486928797198)
+     | > loss_disc_real_2: 0.11347869038581848  (0.17957312752584179)
+     | > loss_disc_real_3: 0.13585957884788513  (0.22107430558674088)
+     | > loss_disc_real_4: 0.19521963596343994  (0.22866912200330256)
+     | > loss_disc_real_5: 0.06658041477203369  (0.2232570646065689)
+     | > loss_0: 1.5361143350601196  (2.1039286120860083)
+     | > grad_norm_0: tensor(25.2894, device='cuda:0')  (tensor(36.4683, device='cuda:0'))
+     | > loss_spk_encoder: -5.886324405670166  (-5.176209831046678)
+     | > loss_gen: 4.753819465637207  (3.134204346096827)
+     | > loss_kl: 3.077346086502075  (4.5844385002801324)
+     | > loss_feat: 18.509313583374023  (10.513928039757188)
+     | > loss_mel: 24.70547103881836  (23.377916576867115)
+     | > loss_duration: 1.9254876375198364  (1.9709147931578617)
+     | > amp_scaler: 2.0  (67.65931863727455)
+     | > loss_1: 47.08510971069336  (38.40519229682508)
+     | > grad_norm_1: tensor(208.0046, device='cuda:0')  (tensor(400.7438, device='cuda:0'))
+     | > current_lr_0: 5e-05 
+     | > current_lr_1: 5e-05 
+     | > step_time: 0.2755  (1.6565403231160196)
+     | > loader_time: 0.0022  (0.003370741804042656)
+
+
+[1m   --> TIME: 2026-03-05 15:47:35 -- STEP: 599/5210 -- GLOBAL_STEP: 600[0m
+     | > loss_disc: 2.0829126834869385  (2.0931669943320768)
+     | > loss_disc_real_0: 0.12732872366905212  (0.1622776697515719)
+     | > loss_disc_real_1: 0.1464642435312271  (0.19106033910221365)
+     | > loss_disc_real_2: 0.2128051370382309  (0.1786401571709046)
+     | > loss_disc_real_3: 0.3978605568408966  (0.21965950778460075)
+     | > loss_disc_real_4: 0.26588356494903564  (0.22581782583178378)
+     | > loss_disc_real_5: 0.3443436324596405  (0.22060089088192766)
+     | > loss_0: 2.0829126834869385  (2.0931669943320768)
+     | > grad_norm_0: tensor(29.1395, device='cuda:0')  (tensor(35.7897, device='cuda:0'))
+     | > loss_spk_encoder: -4.861205577850342  (-5.236424104200185)
+     | > loss_gen: 3.740067720413208  (3.1282915764539605)
+     | > loss_kl: 5.013524532318115  (4.453486958210774)
+     | > loss_feat: 11.67975902557373  (10.42007326960365)
+     | > loss_mel: 21.233150482177734  (23.273071524694878)
+     | > loss_duration: 1.9066048860549927  (1.935318113169405)
+     | > amp_scaler: 2.0  (56.69782971619366)
+     | > loss_1: 38.71189880371094  (37.9738172903682)
+     | > grad_norm_1: tensor(531.5703, device='cuda:0')  (tensor(397.2376, device='cuda:0'))
+     | > current_lr_0: 5e-05 
+     | > current_lr_1: 5e-05 
+     | > step_time: 0.3664  (1.576129041251435)
+     | > loader_time: 0.003  (0.003391615337441879)
+
+
+[1m   --> TIME: 2026-03-05 15:49:28 -- STEP: 699/5210 -- GLOBAL_STEP: 700[0m
+     | > loss_disc: 1.4919016361236572  (2.098608875308771)
+     | > loss_disc_real_0: 0.05674531310796738  (0.15997335146206587)
+     | > loss_disc_real_1: 0.22357504069805145  (0.18938786250263326)
+     | > loss_disc_real_2: 0.11214019358158112  (0.17789826815273685)
+     | > loss_disc_real_3: 0.24137023091316223  (0.22037326157604684)
+     | > loss_disc_real_4: 0.0756242424249649  (0.22475615165626708)
+     | > loss_disc_real_5: 0.226296529173851  (0.22082887008754223)
+     | > loss_0: 1.4919016361236572  (2.098608875308771)
+     | > grad_norm_0: tensor(43.5479, device='cuda:0')  (tensor(35.7295, device='cuda:0'))
+     | > loss_spk_encoder: -4.852814674377441  (-5.298588304219502)
+     | > loss_gen: 4.311742305755615  (3.1140573539788474)
+     | > loss_kl: 6.295826435089111  (4.3550679879809335)
+     | > loss_feat: 10.361961364746094  (10.37365991636066)
+     | > loss_mel: 24.540302276611328  (23.26846760161784)
+     | > loss_duration: 1.5732166767120361  (1.9066397944233429)
+     | > amp_scaler: 1.0  (48.86409155937053)
+     | > loss_1: 42.23023223876953  (37.71930432080884)
+     | > grad_norm_1: tensor(383.4023, device='cuda:0')  (tensor(390.8280, device='cuda:0'))
+     | > current_lr_0: 5e-05 
+     | > current_lr_1: 5e-05 
+     | > step_time: 0.2684  (1.5113467624429637)
+     | > loader_time: 0.0029  (0.003336307828518454)
+
+
+[1m   --> TIME: 2026-03-05 15:51:09 -- STEP: 799/5210 -- GLOBAL_STEP: 800[0m
+     | > loss_disc: 1.452312707901001  (2.0729088419966812)
+     | > loss_disc_real_0: 0.07894305139780045  (0.15682517003165422)
+     | > loss_disc_real_1: 0.1419772356748581  (0.18773749707562754)
+     | > loss_disc_real_2: 0.22102771699428558  (0.17732450346671053)
+     | > loss_disc_real_3: 0.1527186930179596  (0.21953102470246222)
+     | > loss_disc_real_4: 0.3373415470123291  (0.22324056337786852)
+     | > loss_disc_real_5: 0.06985572725534439  (0.21613267141840745)
+     | > loss_0: 1.452312707901001  (2.0729088419966812)
+     | > grad_norm_0: tensor(13.6301, device='cuda:0')  (tensor(34.7290, device='cuda:0'))
+     | > loss_spk_encoder: -6.451181411743164  (-5.367017987971016)
+     | > loss_gen: 4.518573760986328  (3.150970862714461)
+     | > loss_kl: 3.5177557468414307  (4.2570364529334555)
+     | > loss_feat: 12.352370262145996  (10.487386562051404)
+     | > loss_mel: 23.33724594116211  (23.25693482123267)
+     | > loss_duration: 1.5068916082382202  (1.8912948446070876)
+     | > amp_scaler: 1.0  (42.87359198998748)
+     | > loss_1: 38.781654357910156  (37.67660554926445)
+     | > grad_norm_1: tensor(235.9342, device='cuda:0')  (tensor(376.2709, device='cuda:0'))
+     | > current_lr_0: 5e-05 
+     | > current_lr_1: 5e-05 
+     | > step_time: 0.2702  (1.4479318936267989)
+     | > loader_time: 0.0024  (0.003283508429688417)
+
+
+[1m   --> TIME: 2026-03-05 15:53:01 -- STEP: 899/5210 -- GLOBAL_STEP: 900[0m
+     | > loss_disc: 2.0477147102355957  (2.0636052117331847)
+     | > loss_disc_real_0: 0.10782261192798615  (0.15271156209078637)
+     | > loss_disc_real_1: 0.12179875373840332  (0.1852604871630271)
+     | > loss_disc_real_2: 0.16737978160381317  (0.17567106826361395)
+     | > loss_disc_real_3: 0.17525355517864227  (0.21904899185736804)
+     | > loss_disc_real_4: 0.1690259575843811  (0.2214780442201189)
+     | > loss_disc_real_5: 0.14072419703006744  (0.2124394704893364)
+     | > loss_0: 2.0477147102355957  (2.0636052117331847)
+     | > grad_norm_0: tensor(37.0182, device='cuda:0')  (tensor(34.5774, device='cuda:0'))
+     | > loss_spk_encoder: -4.1110405921936035  (-5.4119386924917645)
+     | > loss_gen: 2.688101053237915  (3.149148037224114)
+     | > loss_kl: 3.9814743995666504  (4.190414816472638)
+     | > loss_feat: 11.587540626525879  (10.45880039064452)
+     | > loss_mel: 22.73892593383789  (23.204512512325827)
+     | > loss_duration: 1.8760929107666016  (1.8769187972330794)
+     | > amp_scaler: 1.0  (38.21579532814238)
+     | > loss_1: 38.7610969543457  (37.467855873574685)
+     | > grad_norm_1: tensor(434.5681, device='cuda:0')  (tensor(390.1579, device='cuda:0'))
+     | > current_lr_0: 5e-05 
+     | > current_lr_1: 5e-05 
+     | > step_time: 0.2688  (1.4101789848955637)
+     | > loader_time: 0.0021  (0.0032372914909388254)
+
+
+[1m   --> TIME: 2026-03-05 15:54:33 -- STEP: 999/5210 -- GLOBAL_STEP: 1000[0m
+     | > loss_disc: 1.4463475942611694  (2.0752542954426803)
+     | > loss_disc_real_0: 0.02679574117064476  (0.15519165158135675)
+     | > loss_disc_real_1: 0.05571254715323448  (0.18466040933573688)
+     | > loss_disc_real_2: 0.11565110832452774  (0.17626176911543243)
+     | > loss_disc_real_3: 0.11947085708379745  (0.21959180030990416)
+     | > loss_disc_real_4: 0.1720181107521057  (0.22234177526023172)
+     | > loss_disc_real_5: 0.08542018383741379  (0.2158839591779747)
+     | > loss_0: 1.4463475942611694  (2.0752542954426803)
+     | > grad_norm_0: tensor(34.1514, device='cuda:0')  (tensor(34.4684, device='cuda:0'))
+     | > loss_spk_encoder: -5.868233680725098  (-5.4415883144458865)
+     | > loss_gen: 3.3867340087890625  (3.1332312759097762)
+     | > loss_kl: 3.464874744415283  (4.133705662803966)
+     | > loss_feat: 13.553398132324219  (10.395712296883982)
+     | > loss_mel: 22.94540786743164  (23.148970400606892)
+     | > loss_duration: 1.5039668083190918  (1.8621105042783095)
+     | > amp_scaler: 1.0  (34.490490490490494)
+     | > loss_1: 38.986148834228516  (37.23214182505261)
+     | > grad_norm_1: tensor(377.5637, device='cuda:0')  (tensor(393.7986, device='cuda:0'))
+     | > current_lr_0: 5e-05 
+     | > current_lr_1: 5e-05 
+     | > step_time: 0.3072  (1.3604220756897336)
+     | > loader_time: 0.0029  (0.003206661632946423)
+
+
+ > CHECKPOINT : /home/nibiru/Documents/sem6project/Speech2/pipeline_v2/checkpoints/yourtts_finetuned/vits_tts-portuguese-March-05-2026_03+30PM-0000000/checkpoint_1000.pth
+
+[1m   --> TIME: 2026-03-05 15:56:01 -- STEP: 1099/5210 -- GLOBAL_STEP: 1100[0m
+     | > loss_disc: 1.2683181762695312  (2.089846074418445)
+     | > loss_disc_real_0: 0.03890771046280861  (0.15837347883522654)
+     | > loss_disc_real_1: 0.13776570558547974  (0.18441422436186355)
+     | > loss_disc_real_2: 0.09977826476097107  (0.17581443997562682)
+     | > loss_disc_real_3: 0.08404278755187988  (0.22125237255786853)
+     | > loss_disc_real_4: 0.1905667632818222  (0.22449706833101163)
+     | > loss_disc_real_5: 0.09346211701631546  (0.21888957681512292)
+     | > loss_0: 1.2683181762695312  (2.089846074418445)
+     | > grad_norm_0: tensor(6.9077, device='cuda:0')  (tensor(34.1032, device='cuda:0'))
+     | > loss_spk_encoder: -5.203348159790039  (-5.458443637974595)
+     | > loss_gen: 3.6385388374328613  (3.1221476033994353)
+     | > loss_kl: 2.940034866333008  (4.094266170827341)
+     | > loss_feat: 11.188857078552246  (10.372311366916897)
+     | > loss_mel: 22.612333297729492  (23.133320748534814)
+     | > loss_duration: 1.9692741632461548  (1.8513321521826707)
+     | > amp_scaler: 1.0  (31.443130118289353)
+     | > loss_1: 37.14569091796875  (37.1149344110185)
+     | > grad_norm_1: tensor(370.6175, device='cuda:0')  (tensor(388.2743, device='cuda:0'))
+     | > current_lr_0: 5e-05 
+     | > current_lr_1: 5e-05 
+     | > step_time: 0.3003  (1.3148223685610825)
+     | > loader_time: 0.0027  (0.0032279248450212423)
+
+
+[1m   --> TIME: 2026-03-05 15:57:34 -- STEP: 1199/5210 -- GLOBAL_STEP: 1200[0m
+     | > loss_disc: 2.095343828201294  (2.0961106103892386)
+     | > loss_disc_real_0: 0.2464812844991684  (0.16151990826118154)
+     | > loss_disc_real_1: 0.2574186623096466  (0.1843846386564186)
+     | > loss_disc_real_2: 0.1841387301683426  (0.1768107268387597)
+     | > loss_disc_real_3: 0.26532286405563354  (0.22093659375263713)
+     | > loss_disc_real_4: 0.23967541754245758  (0.2242584904132284)
+     | > loss_disc_real_5: 0.17314626276493073  (0.21941922751144252)
+     | > loss_0: 2.095343828201294  (2.0961106103892386)
+     | > grad_norm_0: tensor(18.6390, device='cuda:0')  (tensor(33.9107, device='cuda:0'))
+     | > loss_spk_encoder: -6.621102809906006  (-5.482462188817743)
+     | > loss_gen: 3.442664623260498  (3.1130251805915536)
+     | > loss_kl: 2.299722909927368  (4.057449193498912)
+     | > loss_feat: 10.638139724731445  (10.311197018404622)
+     | > loss_mel: 23.05608558654785  (23.113623090144277)
+     | > loss_duration: 1.7537858486175537  (1.84529715791357)
+     | > amp_scaler: 1.0  (28.904086738949125)
+     | > loss_1: 34.569297790527344  (36.95812949307069)
+     | > grad_norm_1: tensor(253.9818, device='cuda:0')  (tensor(382.3170, device='cuda:0'))
+     | > current_lr_0: 5e-05 
+     | > current_lr_1: 5e-05 
+     | > step_time: 0.2964  (1.2822091513817466)
+     | > loader_time: 0.0028  (0.003214118478693895)
+
+
+[1m   --> TIME: 2026-03-05 15:59:28 -- STEP: 1299/5210 -- GLOBAL_STEP: 1300[0m
+     | > loss_disc: 2.048555612564087  (2.0986606398392404)
+     | > loss_disc_real_0: 0.16523125767707825  (0.16208648950390636)
+     | > loss_disc_real_1: 0.197919562458992  (0.18508975237917705)
+     | > loss_disc_real_2: 0.13952825963497162  (0.17627195496717227)
+     | > loss_disc_real_3: 0.24149896204471588  (0.22158113149660794)
+     | > loss_disc_real_4: 0.05935915559530258  (0.2244361913558654)
+     | > loss_disc_real_5: 0.03891623020172119  (0.2208879916456236)
+     | > loss_0: 2.048555612564087  (2.0986606398392404)
+     | > grad_norm_0: tensor(71.0237, device='cuda:0')  (tensor(33.9699, device='cuda:0'))
+     | > loss_spk_encoder: -5.124151229858398  (-5.51041054578815)
+     | > loss_gen: 2.556697130203247  (3.1088544655249972)
+     | > loss_kl: 3.0855917930603027  (4.0114289471926945)
+     | > loss_feat: 11.070056915283203  (10.26294266213997)
+     | > loss_mel: 23.32347297668457  (23.068169911702466)
+     | > loss_duration: 1.7224516868591309  (1.835742297036726)
+     | > amp_scaler: 1.0  (26.755966127790607)
+     | > loss_1: 36.634117126464844  (36.77672780119887)
+     | > grad_norm_1: tensor(237.8584, device='cuda:0')  (tensor(378.1050, device='cuda:0'))
+     | > current_lr_0: 5e-05 
+     | > current_lr_1: 5e-05 
+     | > step_time: 0.4738  (1.2708236414987915)
+     | > loader_time: 0.0055  (0.0032050013083325065)
+
+
+[1m   --> TIME: 2026-03-05 16:01:14 -- STEP: 1399/5210 -- GLOBAL_STEP: 1400[0m
+     | > loss_disc: 1.8360180854797363  (2.101892633298376)
+     | > loss_disc_real_0: 0.08727096766233444  (0.16121757633783027)
+     | > loss_disc_real_1: 0.15674136579036713  (0.1849940878454281)
+     | > loss_disc_real_2: 0.19404101371765137  (0.17596568588068906)
+     | > loss_disc_real_3: 0.15836986899375916  (0.22112528978047455)
+     | > loss_disc_real_4: 0.11674732714891434  (0.223936538869053)
+     | > loss_disc_real_5: 0.09850219637155533  (0.22174193049242463)
+     | > loss_0: 1.8360180854797363  (2.101892633298376)
+     | > grad_norm_0: tensor(30.0961, device='cuda:0')  (tensor(34.1729, device='cuda:0'))
+     | > loss_spk_encoder: -5.82920503616333  (-5.533447969803391)
+     | > loss_gen: 2.675780773162842  (3.0974071447639657)
+     | > loss_kl: 2.3770885467529297  (3.97663843454933)
+     | > loss_feat: 8.028170585632324  (10.223716540196872)
+     | > loss_mel: 20.059587478637695  (23.009753647832177)
+     | > loss_duration: 1.6783210039138794  (1.8292785237907419)
+     | > amp_scaler: 1.0  (24.91493924231594)
+     | > loss_1: 28.98974609375  (36.60334638768726)
+     | > grad_norm_1: tensor(160.6421, device='cuda:0')  (tensor(374.5048, device='cuda:0'))
+     | > current_lr_0: 5e-05 
+     | > current_lr_1: 5e-05 
+     | > step_time: 0.3255  (1.2551219734317327)
+     | > loader_time: 0.0038  (0.00323400504253352)
+
+
+[1m   --> TIME: 2026-03-05 16:02:38 -- STEP: 1499/5210 -- GLOBAL_STEP: 1500[0m
+     | > loss_disc: 1.4341413974761963  (2.0952538220464216)
+     | > loss_disc_real_0: 0.14697884023189545  (0.15933016615095288)
+     | > loss_disc_real_1: 0.20228277146816254  (0.18527219323236377)
+     | > loss_disc_real_2: 0.120051309466362  (0.1761545478897525)
+     | > loss_disc_real_3: 0.15213175117969513  (0.2209138926193168)
+     | > loss_disc_real_4: 0.2548632323741913  (0.22440612413302266)
+     | > loss_disc_real_5: 0.1271359771490097  (0.2190133942992583)
+     | > loss_0: 1.4341413974761963  (2.0952538220464216)
+     | > grad_norm_0: tensor(19.5748, device='cuda:0')  (tensor(34.4541, device='cuda:0'))
+     | > loss_spk_encoder: -4.113083839416504  (-5.557896321737582)
+     | > loss_gen: 4.471133232116699  (3.1079218463153344)
+     | > loss_kl: 3.254431962966919  (3.9413458851077237)
+     | > loss_feat: 11.529033660888672  (10.253037082743377)
+     | > loss_mel: 23.005468368530273  (22.980348827522352)
+     | > loss_duration: 1.842443823814392  (1.8250521338725576)
+     | > amp_scaler: 1.0  (23.31954636424283)
+     | > loss_1: 39.98942947387695  (36.549809508676674)
+     | > grad_norm_1: tensor(276.3208, device='cuda:0')  (tensor(374.5600, device='cuda:0'))
+     | > current_lr_0: 5e-05 
+     | > current_lr_1: 5e-05 
+     | > step_time: 0.2712  (1.2271651335761418)
+     | > loader_time: 0.0023  (0.0032398388972673677)
+
+
+[1m   --> TIME: 2026-03-05 16:04:01 -- STEP: 1599/5210 -- GLOBAL_STEP: 1600[0m
+     | > loss_disc: 2.4029955863952637  (2.0984651341969185)
+     | > loss_disc_real_0: 0.14615818858146667  (0.16011088969491133)
+     | > loss_disc_real_1: 0.31250840425491333  (0.18528311227851935)
+     | > loss_disc_real_2: 0.2723950743675232  (0.17550536741463574)
+     | > loss_disc_real_3: 0.27305009961128235  (0.2216717064918821)
+     | > loss_disc_real_4: 0.33045297861099243  (0.22506374447577956)
+     | > loss_disc_real_5: 0.28091961145401  (0.21920772799360025)
+     | > loss_0: 2.4029955863952637  (2.0984651341969185)
+     | > grad_norm_0: tensor(27.4493, device='cuda:0')  (tensor(35.2337, device='cuda:0'))
+     | > loss_spk_encoder: -7.1301751136779785  (-5.58044231258533)
+     | > loss_gen: 3.1938302516937256  (3.1030911357049424)
+     | > loss_kl: 4.131831169128418  (3.9175835061513173)
+     | > loss_feat: 8.421170234680176  (10.220541802550045)
+     | > loss_mel: 20.29005241394043  (22.93471931948966)
+     | > loss_duration: 1.696781873703003  (1.8167680908248447)
+     | > amp_scaler: 1.0  (21.923702313946215)
+     | > loss_1: 30.603490829467773  (36.412261608617484)
+     | > grad_norm_1: tensor(285.1593, device='cuda:0')  (tensor(383.2846, device='cuda:0'))
+     | > current_lr_0: 5e-05 
+     | > current_lr_1: 5e-05 
+     | > step_time: 0.2941  (1.2018505532418)
+     | > loader_time: 0.0032  (0.003229674434125088)
+
+
+[1m   --> TIME: 2026-03-05 16:06:11 -- STEP: 1699/5210 -- GLOBAL_STEP: 1700[0m
+     | > loss_disc: 2.0011491775512695  (2.1060157629445877)
+     | > loss_disc_real_0: 0.08345022052526474  (0.16068244180951766)
+     | > loss_disc_real_1: 0.1745021939277649  (0.18533276365066798)
+     | > loss_disc_real_2: 0.17857575416564941  (0.17593855981119189)
+     | > loss_disc_real_3: 0.2648187279701233  (0.22237260991256858)
+     | > loss_disc_real_4: 0.20822349190711975  (0.22532118882341473)
+     | > loss_disc_real_5: 0.25633716583251953  (0.22059675014762534)
+     | > loss_0: 2.0011491775512695  (2.1060157629445877)
+     | > grad_norm_0: tensor(25.4891, device='cuda:0')  (tensor(35.5250, device='cuda:0'))
+     | > loss_spk_encoder: -6.290717124938965  (-5.59684896132327)
+     | > loss_gen: 2.7549045085906982  (3.092641100454078)
+     | > loss_kl: 4.235015392303467  (3.896820705820352)
+     | > loss_feat: 7.679316997528076  (10.17297366200088)
+     | > loss_mel: 21.548215866088867  (22.897902429770383)
+     | > loss_duration: 1.3779808282852173  (1.8089546915220465)
+     | > amp_scaler: 1.0  (20.692171865803413)
+     | > loss_1: 31.30471420288086  (36.27244367818382)
+     | > grad_norm_1: tensor(161.6915, device='cuda:0')  (tensor(383.2483, device='cuda:0'))
+     | > current_lr_0: 5e-05 
+     | > current_lr_1: 5e-05 
+     | > step_time: 8.9156  (1.2073731812538318)
+     | > loader_time: 0.0034  (0.003229769066265571)
+
+
+[1m   --> TIME: 2026-03-05 16:07:19 -- STEP: 1799/5210 -- GLOBAL_STEP: 1800[0m
+     | > loss_disc: 2.192474126815796  (2.108960818190788)
+     | > loss_disc_real_0: 0.1945912390947342  (0.16046008683058766)
+     | > loss_disc_real_1: 0.11207002401351929  (0.18558874766882308)
+     | > loss_disc_real_2: 0.10686887055635452  (0.17597677156209063)
+     | > loss_disc_real_3: 0.35808148980140686  (0.22281445872314012)
+     | > loss_disc_real_4: 0.2969706952571869  (0.22583557262585977)
+     | > loss_disc_real_5: 0.21255025267601013  (0.22125317256099408)
+     | > loss_0: 2.192474126815796  (2.108960818190788)
+     | > grad_norm_0: tensor(42.0057, device='cuda:0')  (tensor(35.4261, device='cuda:0'))
+     | > loss_spk_encoder: -6.081277847290039  (-5.6092083202328125)
+     | > loss_gen: 2.742262601852417  (3.087015310348969)
+     | > loss_kl: 2.961251974105835  (3.8751301122844857)
+     | > loss_feat: 7.462733268737793  (10.14446677864757)
+     | > loss_mel: 20.827049255371094  (22.847844594051043)
+     | > loss_duration: 1.631990671157837  (1.804487813705202)
+     | > amp_scaler: 1.0  (19.597554196775988)
+     | > loss_1: 29.54401206970215  (36.149736321721065)
+     | > grad_norm_1: tensor(450.5103, device='cuda:0')  (tensor(381.8435, device='cuda:0'))
+     | > current_lr_0: 5e-05 
+     | > current_lr_1: 5e-05 
+     | > step_time: 0.2795  (1.1774526669490086)
+     | > loader_time: 0.0027  (0.003236106795162012)
+
+
+[1m   --> TIME: 2026-03-05 16:08:54 -- STEP: 1899/5210 -- GLOBAL_STEP: 1900[0m
+     | > loss_disc: 2.7491378784179688  (2.112004779118377)
+     | > loss_disc_real_0: 0.30177968740463257  (0.16164987637298958)
+     | > loss_disc_real_1: 0.24489203095436096  (0.18521049631472147)
+     | > loss_disc_real_2: 0.3443544805049896  (0.17577141236362814)
+     | > loss_disc_real_3: 0.289566308259964  (0.22276820871035416)
+     | > loss_disc_real_4: 0.2515791058540344  (0.22526136682363415)
+     | > loss_disc_real_5: 0.3139443099498749  (0.2215807144157392)
+     | > loss_0: 2.7491378784179688  (2.112004779118377)
+     | > grad_norm_0: tensor(45.7676, device='cuda:0')  (tensor(35.3314, device='cuda:0'))
+     | > loss_spk_encoder: -5.987456321716309  (-5.624492506782527)
+     | > loss_gen: 2.972546100616455  (3.0800895078236206)
+     | > loss_kl: 4.167172908782959  (3.85169111302867)
+     | > loss_feat: 7.946577548980713  (10.115967740003152)
+     | > loss_mel: 23.447866439819336  (22.80130947609206)
+     | > loss_duration: 1.6649408340454102  (1.8009563287726946)
+     | > amp_scaler: 1.0  (18.61822011585045)
+     | > loss_1: 34.21164321899414  (36.025521687672686)
+     | > grad_norm_1: tensor(378.0582, device='cuda:0')  (tensor(378.2275, device='cuda:0'))
+     | > current_lr_0: 5e-05 
+     | > current_lr_1: 5e-05 
+     | > step_time: 0.4187  (1.1651163179037023)
+     | > loader_time: 0.0047  (0.0032506695918625064)
+
+
+[1m   --> TIME: 2026-03-05 16:10:32 -- STEP: 1999/5210 -- GLOBAL_STEP: 2000[0m
+     | > loss_disc: 2.2682628631591797  (2.1145671844303555)
+     | > loss_disc_real_0: 0.12117147445678711  (0.1609496743312983)
+     | > loss_disc_real_1: 0.145145982503891  (0.18489334741239266)
+     | > loss_disc_real_2: 0.2801951467990875  (0.1760147974722502)
+     | > loss_disc_real_3: 0.3878032863140106  (0.22319901466887704)
+     | > loss_disc_real_4: 0.18391256034374237  (0.22514120654285455)
+     | > loss_disc_real_5: 0.24660010635852814  (0.22181968557941406)
+     | > loss_0: 2.2682628631591797  (2.1145671844303555)
+     | > grad_norm_0: tensor(24.1761, device='cuda:0')  (tensor(35.0377, device='cuda:0'))
+     | > loss_spk_encoder: -6.472012519836426  (-5.638316702520686)
+     | > loss_gen: 2.8398125171661377  (3.072511498721735)
+     | > loss_kl: 3.1268486976623535  (3.828558772563816)
+     | > loss_feat: 8.783370018005371  (10.077166158595995)
+     | > loss_mel: 20.607927322387695  (22.751391188987412)
+     | > loss_duration: 1.9333796501159668  (1.795991243750766)
+     | > amp_scaler: 0.5  (17.718859429714858)
+     | > loss_1: 30.81932830810547  (35.88730218972233)
+     | > grad_norm_1: tensor(156.1352, device='cuda:0')  (tensor(374.2725, device='cuda:0'))
+     | > current_lr_0: 5e-05 
+     | > current_lr_1: 5e-05 
+     | > step_time: 0.2789  (1.1554263487286798)
+     | > loader_time: 0.0022  (0.0032810742643966024)
+
+
+ > CHECKPOINT : /home/nibiru/Documents/sem6project/Speech2/pipeline_v2/checkpoints/yourtts_finetuned/vits_tts-portuguese-March-05-2026_03+30PM-0000000/checkpoint_2000.pth
+
+[1m   --> TIME: 2026-03-05 16:11:42 -- STEP: 2099/5210 -- GLOBAL_STEP: 2100[0m
+     | > loss_disc: 2.458850383758545  (2.114571375668535)
+     | > loss_disc_real_0: 0.5016821622848511  (0.15997081841379854)
+     | > loss_disc_real_1: 0.17240682244300842  (0.18480530331863468)
+     | > loss_disc_real_2: 0.1336778700351715  (0.17642199270082926)
+     | > loss_disc_real_3: 0.1489599496126175  (0.22220747035019817)
+     | > loss_disc_real_4: 0.11414272338151932  (0.22482350883582133)
+     | > loss_disc_real_5: 0.27007341384887695  (0.22145197422875035)
+     | > loss_0: 2.458850383758545  (2.114571375668535)
+     | > grad_norm_0: tensor(24.2200, device='cuda:0')  (tensor(35.2664, device='cuda:0'))
+     | > loss_spk_encoder: -6.640241622924805  (-5.659921624423094)
+     | > loss_gen: 2.79325532913208  (3.065583851747481)
+     | > loss_kl: 3.808804512023926  (3.8060966006996195)
+     | > loss_feat: 12.545961380004883  (10.04552239074543)
+     | > loss_mel: 22.22508430480957  (22.71466117066503)
+     | > loss_duration: 1.5227632522583008  (1.7921451260329082)
+     | > amp_scaler: 0.5  (16.89852310624107)
+     | > loss_1: 36.25562286376953  (35.76408752979338)
+     | > grad_norm_1: tensor(281.8068, device='cuda:0')  (tensor(372.7801, device='cuda:0'))
+     | > current_lr_0: 5e-05 
+     | > current_lr_1: 5e-05 
+     | > step_time: 0.5348  (1.132556528065989)
+     | > loader_time: 0.0051  (0.00328120360662961)
+
+
+[1m   --> TIME: 2026-03-05 16:13:24 -- STEP: 2199/5210 -- GLOBAL_STEP: 2200[0m
+     | > loss_disc: 2.2209901809692383  (2.1139094686172117)
+     | > loss_disc_real_0: 0.18257470428943634  (0.15986210103546952)
+     | > loss_disc_real_1: 0.1862861067056656  (0.18462826142179917)
+     | > loss_disc_real_2: 0.13797597587108612  (0.1764940499866373)
+     | > loss_disc_real_3: 0.2963683307170868  (0.22176529974907486)
+     | > loss_disc_real_4: 0.3391341269016266  (0.22448590205556257)
+     | > loss_disc_real_5: 0.4199230372905731  (0.22095914641835662)
+     | > loss_0: 2.2209901809692383  (2.1139094686172117)
+     | > grad_norm_0: tensor(91.2174, device='cuda:0')  (tensor(35.4130, device='cuda:0'))
+     | > loss_spk_encoder: -6.270025253295898  (-5.6724805812393315)
+     | > loss_gen: 3.383798360824585  (3.066279298340856)
+     | > loss_kl: 4.702018737792969  (3.7833000261467027)
+     | > loss_feat: 6.8545966148376465  (10.047979132486176)
+     | > loss_mel: 20.535362243652344  (22.69501267069303)
+     | > loss_duration: 1.4894803762435913  (1.7879361323520988)
+     | > amp_scaler: 0.5  (16.152796725784434)
+     | > loss_1: 30.69523048400879  (35.70802668128664)
+     | > grad_norm_1: tensor(827.7953, device='cuda:0')  (tensor(375.0972, device='cuda:0'))
+     | > current_lr_0: 5e-05 
+     | > current_lr_1: 5e-05 
+     | > step_time: 0.3419  (1.1271825642301705)
+     | > loader_time: 0.0039  (0.003271904572837729)
+
+
+[1m   --> TIME: 2026-03-05 16:15:09 -- STEP: 2299/5210 -- GLOBAL_STEP: 2300[0m
+     | > loss_disc: 1.9981526136398315  (2.1180769579210446)
+     | > loss_disc_real_0: 0.05981268733739853  (0.1595977080239306)
+     | > loss_disc_real_1: 0.12633484601974487  (0.18492289127643444)
+     | > loss_disc_real_2: 0.0902126282453537  (0.17668465473707384)
+     | > loss_disc_real_3: 0.18164189159870148  (0.22244145917508085)
+     | > loss_disc_real_4: 0.35353314876556396  (0.22501919114263005)
+     | > loss_disc_real_5: 0.16682057082653046  (0.22135516165574606)
+     | > loss_0: 1.9981526136398315  (2.1180769579210446)
+     | > grad_norm_0: tensor(26.4120, device='cuda:0')  (tensor(35.2848, device='cuda:0'))
+     | > loss_spk_encoder: -5.267185211181641  (-5.685002296890781)
+     | > loss_gen: 2.7570016384124756  (3.061841322941174)
+     | > loss_kl: 3.8692078590393066  (3.7664266121988987)
+     | > loss_feat: 8.578009605407715  (9.999995186309182)
+     | > loss_mel: 22.56370735168457  (22.65366201164308)
+     | > loss_duration: 1.4204373359680176  (1.7827860365332902)
+     | > amp_scaler: 0.5  (15.471944323618953)
+     | > loss_1: 33.92117691040039  (35.5797088742514)
+     | > grad_norm_1: tensor(179.1452, device='cuda:0')  (tensor(372.8279, device='cuda:0'))
+     | > current_lr_0: 5e-05 
+     | > current_lr_1: 5e-05 
+     | > step_time: 0.2816  (1.1237065334743197)
+     | > loader_time: 0.0045  (0.003272305990935098)
+
+
+[1m   --> TIME: 2026-03-05 16:16:42 -- STEP: 2399/5210 -- GLOBAL_STEP: 2400[0m
+     | > loss_disc: 2.1972079277038574  (2.1200207415944923)
+     | > loss_disc_real_0: 0.1390770524740219  (0.15914678190578205)
+     | > loss_disc_real_1: 0.12525443732738495  (0.18470534974209915)
+     | > loss_disc_real_2: 0.20658257603645325  (0.17691519601319475)
+     | > loss_disc_real_3: 0.3091435730457306  (0.2224385211529173)
+     | > loss_disc_real_4: 0.3600040376186371  (0.2245421824746202)
+     | > loss_disc_real_5: 0.17907121777534485  (0.2208818777595545)
+     | > loss_0: 2.1972079277038574  (2.1200207415944923)
+     | > grad_norm_0: tensor(42.0718, device='cuda:0')  (tensor(35.5706, device='cuda:0'))
+     | > loss_spk_encoder: -6.325112342834473  (-5.698068655744698)
+     | > loss_gen: 3.205890417098999  (3.0574537767574843)
+     | > loss_kl: 3.485116958618164  (3.7516623439640755)
+     | > loss_feat: 9.645035743713379  (9.973315346385094)
+     | > loss_mel: 21.73932647705078  (22.62331241386638)
+     | > loss_duration: 1.8297258615493774  (1.779504674978681)
+     | > amp_scaler: 0.5  (14.847853272196737)
+     | > loss_1: 33.579986572265625  (35.48717990841841)
+     | > grad_norm_1: tensor(197.6134, device='cuda:0')  (tensor(375.2092, device='cuda:0'))
+     | > current_lr_0: 5e-05 
+     | > current_lr_1: 5e-05 
+     | > step_time: 0.3912  (1.1152716555561613)
+     | > loader_time: 0.0049  (0.0032741914147285185)
+
+
+[1m   --> TIME: 2026-03-05 16:18:18 -- STEP: 2499/5210 -- GLOBAL_STEP: 2500[0m
+     | > loss_disc: 1.9856157302856445  (2.122215174517191)
+     | > loss_disc_real_0: 0.1676809936761856  (0.15903402419191348)
+     | > loss_disc_real_1: 0.2374689280986786  (0.1847462664071728)
+     | > loss_disc_real_2: 0.15810224413871765  (0.17744859127926335)
+     | > loss_disc_real_3: 0.14738942682743073  (0.2222826574474763)
+     | > loss_disc_real_4: 0.2138323187828064  (0.2244372201003446)
+     | > loss_disc_real_5: 0.08305470645427704  (0.22044587928057155)
+     | > loss_0: 1.9856157302856445  (2.122215174517191)
+     | > grad_norm_0: tensor(23.7749, device='cuda:0')  (tensor(35.7455, device='cuda:0'))
+     | > loss_spk_encoder: -6.558894634246826  (-5.7153846539226025)
+     | > loss_gen: 2.6012864112854004  (3.051547166966303)
+     | > loss_kl: 4.166927814483643  (3.73668526476171)
+     | > loss_feat: 7.622098445892334  (9.945450880184987)
+     | > loss_mel: 22.398202896118164  (22.602228595906126)
+     | > loss_duration: 1.6917558908462524  (1.7750559182775734)
+     | > amp_scaler: 0.5  (14.273709483793505)
+     | > loss_1: 31.92137908935547  (35.395583195130996)
+     | > grad_norm_1: tensor(371.9802, device='cuda:0')  (tensor(375.3453, device='cuda:0'))
+     | > current_lr_0: 5e-05 
+     | > current_lr_1: 5e-05 
+     | > step_time: 0.277  (1.108570480022301)
+     | > loader_time: 0.0031  (0.003278907750691831)
+
+
+[1m   --> TIME: 2026-03-05 16:19:53 -- STEP: 2599/5210 -- GLOBAL_STEP: 2600[0m
+     | > loss_disc: 2.21099591255188  (2.1236172374875455)
+     | > loss_disc_real_0: 0.20193389058113098  (0.158843856470974)
+     | > loss_disc_real_1: 0.28668177127838135  (0.1848036292460203)
+     | > loss_disc_real_2: 0.23102647066116333  (0.1773953916990171)
+     | > loss_disc_real_3: 0.20609410107135773  (0.22219317872471392)
+     | > loss_disc_real_4: 0.18789297342300415  (0.22402292747149413)
+     | > loss_disc_real_5: 0.10025756806135178  (0.2203917391908187)
+     | > loss_0: 2.21099591255188  (2.1236172374875455)
+     | > grad_norm_0: tensor(15.0977, device='cuda:0')  (tensor(35.6095, device='cuda:0'))
+     | > loss_spk_encoder: -5.450099945068359  (-5.728518920753859)
+     | > loss_gen: 2.849700689315796  (3.045565087963132)
+     | > loss_kl: 3.6898887157440186  (3.7224935364177396)
+     | > loss_feat: 7.924337387084961  (9.930044459948027)
+     | > loss_mel: 19.166637420654297  (22.58052518946613)
+     | > loss_duration: 1.6064304113388062  (1.7703695162391142)
+     | > amp_scaler: 0.5  (13.743747595228923)
+     | > loss_1: 29.786895751953125  (35.320478875254445)
+     | > grad_norm_1: tensor(202.8007, device='cuda:0')  (tensor(374.9293, device='cuda:0'))
+     | > current_lr_0: 5e-05 
+     | > current_lr_1: 5e-05 
+     | > step_time: 0.2803  (1.102402318115646)
+     | > loader_time: 0.0027  (0.0032777381704696663)
+
+
+[1m   --> TIME: 2026-03-05 16:21:49 -- STEP: 2699/5210 -- GLOBAL_STEP: 2700[0m
+     | > loss_disc: 1.9962444305419922  (2.122564113396286)
+     | > loss_disc_real_0: 0.14025728404521942  (0.15837675894628858)
+     | > loss_disc_real_1: 0.23379449546337128  (0.18432189339220434)
+     | > loss_disc_real_2: 0.14830297231674194  (0.1768688368340166)
+     | > loss_disc_real_3: 0.20326247811317444  (0.2220424947264338)
+     | > loss_disc_real_4: 0.23495745658874512  (0.22371971489473055)
+     | > loss_disc_real_5: 0.1441187709569931  (0.22059122403592232)
+     | > loss_0: 1.9962444305419922  (2.122564113396286)
+     | > grad_norm_0: tensor(19.2293, device='cuda:0')  (tensor(35.4539, device='cuda:0'))
+     | > loss_spk_encoder: -5.469865322113037  (-5.740053031920672)
+     | > loss_gen: 3.336886167526245  (3.0441038626218204)
+     | > loss_kl: 3.859069585800171  (3.707689027193964)
+     | > loss_feat: 9.481400489807129  (9.91834547697237)
+     | > loss_mel: 23.835830688476562  (22.55663875722584)
+     | > loss_duration: 1.4971446990966797  (1.7679553956356515)
+     | > amp_scaler: 0.5  (13.253056687662086)
+     | > loss_1: 36.54046630859375  (35.254679499311976)
+     | > grad_norm_1: tensor(346.1357, device='cuda:0')  (tensor(374.0003, device='cuda:0'))
+     | > current_lr_0: 5e-05 
+     | > current_lr_1: 5e-05 
+     | > step_time: 0.4038  (1.1040964430462383)
+     | > loader_time: 0.0041  (0.0032928907769660073)
+
+
+[1m   --> TIME: 2026-03-05 16:23:42 -- STEP: 2799/5210 -- GLOBAL_STEP: 2800[0m
+     | > loss_disc: 2.1916086673736572  (2.123399599934107)
+     | > loss_disc_real_0: 0.07773380726575851  (0.15844998506146352)
+     | > loss_disc_real_1: 0.2320796251296997  (0.1839734305184774)
+     | > loss_disc_real_2: 0.15727418661117554  (0.17691395423305545)
+     | > loss_disc_real_3: 0.2892609238624573  (0.22203947784110933)
+     | > loss_disc_real_4: 0.3465011715888977  (0.22397168695250538)
+     | > loss_disc_real_5: 0.2202717512845993  (0.22071599744998308)
+     | > loss_0: 2.1916086673736572  (2.123399599934107)
+     | > grad_norm_0: tensor(20.1291, device='cuda:0')  (tensor(35.4604, device='cuda:0'))
+     | > loss_spk_encoder: -6.006500244140625  (-5.748388179756557)
+     | > loss_gen: 2.8502471446990967  (3.041994191570425)
+     | > loss_kl: 4.164891719818115  (3.6917827255323825)
+     | > loss_feat: 8.608654022216797  (9.894454144801161)
+     | > loss_mel: 26.255033493041992  (22.5387107164956)
+     | > loss_duration: 2.180539608001709  (1.7652804169666765)
+     | > amp_scaler: 0.5  (12.79742765273311)
+     | > loss_1: 38.05286407470703  (35.18383402413828)
+     | > grad_norm_1: tensor(369.6048, device='cuda:0')  (tensor(371.9631, device='cuda:0'))
+     | > current_lr_0: 5e-05 
+     | > current_lr_1: 5e-05 
+     | > step_time: 0.4297  (1.1047020185074647)
+     | > loader_time: 0.0054  (0.0032908053600860534)
+
+
+[1m   --> TIME: 2026-03-05 16:25:21 -- STEP: 2899/5210 -- GLOBAL_STEP: 2900[0m
+     | > loss_disc: 1.3737106323242188  (2.1232593252190926)
+     | > loss_disc_real_0: 0.12586858868598938  (0.1584566066926007)
+     | > loss_disc_real_1: 0.18811409175395966  (0.1835380413907792)
+     | > loss_disc_real_2: 0.1563117355108261  (0.17668880343696788)
+     | > loss_disc_real_3: 0.12825749814510345  (0.22187737170728922)
+     | > loss_disc_real_4: 0.1846952736377716  (0.22388108697003137)
+     | > loss_disc_real_5: 0.10561536252498627  (0.22055948691965607)
+     | > loss_0: 1.3737106323242188  (2.1232593252190926)
+     | > grad_norm_0: tensor(32.6342, device='cuda:0')  (tensor(35.4432, device='cuda:0'))
+     | > loss_spk_encoder: -5.346926689147949  (-5.758222687774866)
+     | > loss_gen: 5.1334733963012695  (3.0398429431106027)
+     | > loss_kl: 2.602036714553833  (3.6763655015438674)
+     | > loss_feat: 13.284148216247559  (9.875237086181905)
+     | > loss_mel: 21.678892135620117  (22.526482269245005)
+     | > loss_duration: 1.9890327453613281  (1.7619323123525277)
+     | > amp_scaler: 0.5  (12.373232149016893)
+     | > loss_1: 39.34065628051758  (35.121637429233644)
+     | > grad_norm_1: tensor(392.7373, device='cuda:0')  (tensor(371.0265, device='cuda:0'))
+     | > current_lr_0: 5e-05 
+     | > current_lr_1: 5e-05 
+     | > step_time: 0.2789  (1.1003815529880194)
+     | > loader_time: 0.0024  (0.003316137288183376)
+
+
+[1m   --> TIME: 2026-03-05 16:26:54 -- STEP: 2999/5210 -- GLOBAL_STEP: 3000[0m
+     | > loss_disc: 1.8054580688476562  (2.1245656602777805)
+     | > loss_disc_real_0: 0.17992305755615234  (0.15864628148735652)
+     | > loss_disc_real_1: 0.20254077017307281  (0.18375951441631538)
+     | > loss_disc_real_2: 0.1312628984451294  (0.17720979622870495)
+     | > loss_disc_real_3: 0.20546185970306396  (0.22113843403120617)
+     | > loss_disc_real_4: 0.12686759233474731  (0.22364750731563748)
+     | > loss_disc_real_5: 0.15617120265960693  (0.22020688503201163)
+     | > loss_0: 1.8054580688476562  (2.1245656602777805)
+     | > grad_norm_0: tensor(13.2345, device='cuda:0')  (tensor(35.5579, device='cuda:0'))
+     | > loss_spk_encoder: -6.42263650894165  (-5.7688534434694665)
+     | > loss_gen: 3.454766273498535  (3.0346378512921515)
+     | > loss_kl: 2.5624454021453857  (3.6620012735895187)
+     | > loss_feat: 10.113840103149414  (9.8498404115468)
+     | > loss_mel: 20.752769470214844  (22.504504040981708)
+     | > loss_duration: 1.5455290079116821  (1.759394266916219)
+     | > amp_scaler: 0.25  (11.97057352450816)
+     | > loss_1: 32.006710052490234  (35.041524406272735)
+     | > grad_norm_1: tensor(153.5425, device='cuda:0')  (tensor(370.6432, device='cuda:0'))
+     | > current_lr_0: 5e-05 
+     | > current_lr_1: 5e-05 
+     | > step_time: 0.317  (1.0946005684171105)
+     | > loader_time: 0.0043  (0.0033067270452557277)
+
+
+ > CHECKPOINT : /home/nibiru/Documents/sem6project/Speech2/pipeline_v2/checkpoints/yourtts_finetuned/vits_tts-portuguese-March-05-2026_03+30PM-0000000/checkpoint_3000.pth
+
+[1m   --> TIME: 2026-03-05 16:28:48 -- STEP: 3099/5210 -- GLOBAL_STEP: 3100[0m
+     | > loss_disc: 2.515232563018799  (2.126085817583075)
+     | > loss_disc_real_0: 0.4748070240020752  (0.15854080272844479)
+     | > loss_disc_real_1: 0.21000324189662933  (0.18395013365414908)
+     | > loss_disc_real_2: 0.13111837208271027  (0.17762824923651166)
+     | > loss_disc_real_3: 0.36285772919654846  (0.2210916326828745)
+     | > loss_disc_real_4: 0.11819418519735336  (0.2234929139530823)
+     | > loss_disc_real_5: 0.6362061500549316  (0.22035765947735578)
+     | > loss_0: 2.515232563018799  (2.126085817583075)
+     | > grad_norm_0: tensor(33.9117, device='cuda:0')  (tensor(35.5242, device='cuda:0'))
+     | > loss_spk_encoder: -4.7285871505737305  (-5.775861876362477)
+     | > loss_gen: 4.421131610870361  (3.0320824373149224)
+     | > loss_kl: 4.26957893371582  (3.65114261680705)
+     | > loss_feat: 11.374605178833008  (9.831511530694568)
+     | > loss_mel: 23.63341522216797  (22.48055094170856)
+     | > loss_duration: 1.869884967803955  (1.7573916903231437)
+     | > amp_scaler: 0.25  (11.592368505969658)
+     | > loss_1: 40.84002685546875  (34.976817351689235)
+     | > grad_norm_1: tensor(298.4285, device='cuda:0')  (tensor(369.4699, device='cuda:0'))
+     | > current_lr_0: 5e-05 
+     | > current_lr_1: 5e-05 
+     | > step_time: 0.3766  (1.0952458369343365)
+     | > loader_time: 0.0043  (0.0033082762007637934)
+

@@ -1,0 +1,205 @@
+============================================================
+Voice Model Training — WavLM Speaker Encoder + Voice Autoencoder
+============================================================
+Device: cuda
+GPU: NVIDIA GeForce RTX 4060 Laptop GPU
+VRAM: 8.2 GB
+
+Scanning datasets...
+LibriTTS: 79 speakers, 10573 files
+Archive:  2133 speakers, 2133 files
+Total:    2212 speakers, 12706 files
+
+
+--- PHASE 1: Voice Autoencoder ---
+
+============================================================
+TRAINING VOICE AUTOENCODER
+============================================================
+Dataset: 2212 speakers, 5545 pairs
+VAE parameters: 3,679,697
+Training for 50 epochs, 346 batches/epoch
+Epoch 1/50 | Loss: 4.8740 | Recon: 4.1963 | Speaker: 0.8533 | Self: 1.5658 | LR: 0.000999
+  ✓ Saved best model (loss=4.8740)
+Epoch 2/50 | Loss: 2.7834 | Recon: 2.2980 | Speaker: 0.7328 | Self: 1.1113 | LR: 0.000996
+  ✓ Saved best model (loss=2.7834)
+Epoch 3/50 | Loss: 2.5984 | Recon: 2.1356 | Speaker: 0.7048 | Self: 1.0559 | LR: 0.000991
+  ✓ Saved best model (loss=2.5984)
+Epoch 4/50 | Loss: 2.4958 | Recon: 2.0453 | Speaker: 0.6903 | Self: 1.0230 | LR: 0.000984
+  ✓ Saved best model (loss=2.4958)
+Epoch 5/50 | Loss: 2.4286 | Recon: 1.9875 | Speaker: 0.6772 | Self: 1.0028 | LR: 0.000976
+  ✓ Saved best model (loss=2.4286)
+Epoch 6/50 | Loss: 2.3739 | Recon: 1.9400 | Speaker: 0.6669 | Self: 0.9866 | LR: 0.000965
+  ✓ Saved best model (loss=2.3739)
+Epoch 7/50 | Loss: 2.3280 | Recon: 1.8971 | Speaker: 0.6602 | Self: 0.9713 | LR: 0.000952
+  ✓ Saved best model (loss=2.3280)
+Epoch 8/50 | Loss: 2.2917 | Recon: 1.8648 | Speaker: 0.6538 | Self: 0.9626 | LR: 0.000938
+  ✓ Saved best model (loss=2.2917)
+Epoch 9/50 | Loss: 2.2384 | Recon: 1.8176 | Speaker: 0.6459 | Self: 0.9443 | LR: 0.000922
+  ✓ Saved best model (loss=2.2384)
+Epoch 10/50 | Loss: 2.2089 | Recon: 1.7922 | Speaker: 0.6386 | Self: 0.9364 | LR: 0.000905
+  ✓ Saved best model (loss=2.2089)
+Epoch 11/50 | Loss: 2.1527 | Recon: 1.7399 | Speaker: 0.6322 | Self: 0.9192 | LR: 0.000885
+  ✓ Saved best model (loss=2.1527)
+Epoch 12/50 | Loss: 2.1228 | Recon: 1.7089 | Speaker: 0.6309 | Self: 0.9097 | LR: 0.000864
+  ✓ Saved best model (loss=2.1228)
+Epoch 13/50 | Loss: 2.0787 | Recon: 1.6688 | Speaker: 0.6246 | Self: 0.8956 | LR: 0.000842
+  ✓ Saved best model (loss=2.0787)
+Epoch 14/50 | Loss: 2.0550 | Recon: 1.6501 | Speaker: 0.6183 | Self: 0.8885 | LR: 0.000819
+  ✓ Saved best model (loss=2.0550)
+Epoch 15/50 | Loss: 2.0061 | Recon: 1.6036 | Speaker: 0.6144 | Self: 0.8723 | LR: 0.000794
+  ✓ Saved best model (loss=2.0061)
+Epoch 16/50 | Loss: 1.9945 | Recon: 1.5925 | Speaker: 0.6122 | Self: 0.8684 | LR: 0.000768
+  ✓ Saved best model (loss=1.9945)
+Epoch 17/50 | Loss: 1.9660 | Recon: 1.5678 | Speaker: 0.6085 | Self: 0.8590 | LR: 0.000741
+  ✓ Saved best model (loss=1.9660)
+Epoch 18/50 | Loss: 1.9416 | Recon: 1.5462 | Speaker: 0.6038 | Self: 0.8518 | LR: 0.000713
+  ✓ Saved best model (loss=1.9416)
+Epoch 19/50 | Loss: 1.9300 | Recon: 1.5354 | Speaker: 0.6027 | Self: 0.8477 | LR: 0.000684
+  ✓ Saved best model (loss=1.9300)
+Epoch 20/50 | Loss: 1.9021 | Recon: 1.5103 | Speaker: 0.5992 | Self: 0.8379 | LR: 0.000655
+  ✓ Saved best model (loss=1.9021)
+Epoch 21/50 | Loss: 1.8955 | Recon: 1.5046 | Speaker: 0.5982 | Self: 0.8359 | LR: 0.000624
+  ✓ Saved best model (loss=1.8955)
+Epoch 22/50 | Loss: 1.8871 | Recon: 1.4961 | Speaker: 0.5967 | Self: 0.8333 | LR: 0.000594
+  ✓ Saved best model (loss=1.8871)
+Epoch 23/50 | Loss: 1.8669 | Recon: 1.4778 | Speaker: 0.5959 | Self: 0.8258 | LR: 0.000563
+  ✓ Saved best model (loss=1.8669)
+Epoch 24/50 | Loss: 1.8611 | Recon: 1.4730 | Speaker: 0.5926 | Self: 0.8236 | LR: 0.000531
+  ✓ Saved best model (loss=1.8611)
+Epoch 25/50 | Loss: 1.8444 | Recon: 1.4573 | Speaker: 0.5931 | Self: 0.8175 | LR: 0.000500
+  ✓ Saved best model (loss=1.8444)
+Epoch 26/50 | Loss: 1.8234 | Recon: 1.4381 | Speaker: 0.5904 | Self: 0.8104 | LR: 0.000469
+  ✓ Saved best model (loss=1.8234)
+Epoch 27/50 | Loss: 1.8126 | Recon: 1.4268 | Speaker: 0.5926 | Self: 0.8053 | LR: 0.000437
+  ✓ Saved best model (loss=1.8126)
+Epoch 28/50 | Loss: 1.8068 | Recon: 1.4233 | Speaker: 0.5887 | Self: 0.8047 | LR: 0.000406
+  ✓ Saved best model (loss=1.8068)
+Epoch 29/50 | Loss: 1.7980 | Recon: 1.4150 | Speaker: 0.5875 | Self: 0.8010 | LR: 0.000376
+  ✓ Saved best model (loss=1.7980)
+Epoch 30/50 | Loss: 1.7907 | Recon: 1.4086 | Speaker: 0.5869 | Self: 0.7981 | LR: 0.000345
+  ✓ Saved best model (loss=1.7907)
+Epoch 31/50 | Loss: 1.7752 | Recon: 1.3939 | Speaker: 0.5865 | Self: 0.7928 | LR: 0.000316
+  ✓ Saved best model (loss=1.7752)
+Epoch 32/50 | Loss: 1.7718 | Recon: 1.3916 | Speaker: 0.5850 | Self: 0.7917 | LR: 0.000287
+  ✓ Saved best model (loss=1.7718)
+Epoch 33/50 | Loss: 1.7613 | Recon: 1.3820 | Speaker: 0.5838 | Self: 0.7879 | LR: 0.000259
+  ✓ Saved best model (loss=1.7613)
+Epoch 34/50 | Loss: 1.7561 | Recon: 1.3763 | Speaker: 0.5844 | Self: 0.7857 | LR: 0.000232
+  ✓ Saved best model (loss=1.7561)
+Epoch 35/50 | Loss: 1.7510 | Recon: 1.3717 | Speaker: 0.5841 | Self: 0.7838 | LR: 0.000206
+  ✓ Saved best model (loss=1.7510)
+Epoch 36/50 | Loss: 1.7399 | Recon: 1.3608 | Speaker: 0.5845 | Self: 0.7795 | LR: 0.000181
+  ✓ Saved best model (loss=1.7399)
+Epoch 37/50 | Loss: 1.7355 | Recon: 1.3573 | Speaker: 0.5833 | Self: 0.7781 | LR: 0.000158
+  ✓ Saved best model (loss=1.7355)
+Epoch 38/50 | Loss: 1.7306 | Recon: 1.3536 | Speaker: 0.5818 | Self: 0.7766 | LR: 0.000136
+  ✓ Saved best model (loss=1.7306)
+Epoch 39/50 | Loss: 1.7283 | Recon: 1.3511 | Speaker: 0.5826 | Self: 0.7757 | LR: 0.000115
+  ✓ Saved best model (loss=1.7283)
+Epoch 40/50 | Loss: 1.7195 | Recon: 1.3433 | Speaker: 0.5813 | Self: 0.7721 | LR: 0.000095
+  ✓ Saved best model (loss=1.7195)
+Epoch 41/50 | Loss: 1.7162 | Recon: 1.3410 | Speaker: 0.5792 | Self: 0.7716 | LR: 0.000078
+  ✓ Saved best model (loss=1.7162)
+Epoch 42/50 | Loss: 1.7136 | Recon: 1.3380 | Speaker: 0.5804 | Self: 0.7701 | LR: 0.000062
+  ✓ Saved best model (loss=1.7136)
+Epoch 43/50 | Loss: 1.7098 | Recon: 1.3346 | Speaker: 0.5800 | Self: 0.7686 | LR: 0.000048
+  ✓ Saved best model (loss=1.7098)
+Epoch 44/50 | Loss: 1.7095 | Recon: 1.3343 | Speaker: 0.5802 | Self: 0.7687 | LR: 0.000035
+  ✓ Saved best model (loss=1.7095)
+Epoch 45/50 | Loss: 1.7053 | Recon: 1.3303 | Speaker: 0.5804 | Self: 0.7673 | LR: 0.000024
+  ✓ Saved best model (loss=1.7053)
+Epoch 46/50 | Loss: 1.7036 | Recon: 1.3286 | Speaker: 0.5805 | Self: 0.7664 | LR: 0.000016
+  ✓ Saved best model (loss=1.7036)
+Epoch 47/50 | Loss: 1.7026 | Recon: 1.3281 | Speaker: 0.5792 | Self: 0.7659 | LR: 0.000009
+  ✓ Saved best model (loss=1.7026)
+Epoch 48/50 | Loss: 1.7039 | Recon: 1.3292 | Speaker: 0.5799 | Self: 0.7663 | LR: 0.000004
+Epoch 49/50 | Loss: 1.7034 | Recon: 1.3289 | Speaker: 0.5796 | Self: 0.7660 | LR: 0.000001
+2026-03-05 17:38:44.980720: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-03-05 17:38:45.302056: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2026-03-05 17:38:47.921189: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+Skipping import of cpp extensions due to incompatible torch version 2.9.1+cu128 for torchao version 0.14.1             Please see https://github.com/pytorch/ao/issues/2919 for more info
+Epoch 50/50 | Loss: 1.7060 | Recon: 1.3316 | Speaker: 0.5796 | Self: 0.7671 | LR: 0.000000
+
+Voice Autoencoder training complete. Best loss: 1.7026
+
+
+--- PHASE 2: WavLM Speaker Encoder ---
+
+============================================================
+TRAINING WAVLM SPEAKER ENCODER
+============================================================
+WavLM Dataset: 2212 speakers, 12706 utterances
+WavLM trainable parameters: 15,859,510 (total: 96,064,638)
+Training for 30 epochs, 1588 batches/epoch
+Traceback (most recent call last):
+  File "/home/nibiru/Documents/sem6project/Speech2/pipeline_v2/train_voice_models.py", line 785, in <module>
+    main()
+  File "/home/nibiru/Documents/sem6project/Speech2/pipeline_v2/train_voice_models.py", line 757, in main
+    wavlm_model = train_wavlm_speaker_encoder(all_speakers)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nibiru/Documents/sem6project/Speech2/pipeline_v2/train_voice_models.py", line 516, in train_wavlm_speaker_encoder
+    emb, logits = model(wavs, spk_ids)
+                  ^^^^^^^^^^^^^^^^^^^^
+  File "/home/nibiru/.conda/envs/ml_env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nibiru/.conda/envs/ml_env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nibiru/Documents/sem6project/Speech2/pipeline_v2/voice_autoencoder.py", line 312, in forward
+    outputs = self.wavlm(waveform, output_hidden_states=True)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nibiru/.conda/envs/ml_env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nibiru/.conda/envs/ml_env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nibiru/.conda/envs/ml_env/lib/python3.11/site-packages/transformers/models/wavlm/modeling_wavlm.py", line 1085, in forward
+    encoder_outputs = self.encoder(
+                      ^^^^^^^^^^^^^
+  File "/home/nibiru/.conda/envs/ml_env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nibiru/.conda/envs/ml_env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nibiru/.conda/envs/ml_env/lib/python3.11/site-packages/transformers/models/wavlm/modeling_wavlm.py", line 422, in forward
+    layer_outputs = layer(
+                    ^^^^^^
+  File "/home/nibiru/.conda/envs/ml_env/lib/python3.11/site-packages/transformers/modeling_layers.py", line 94, in __call__
+    return super().__call__(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nibiru/.conda/envs/ml_env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nibiru/.conda/envs/ml_env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nibiru/.conda/envs/ml_env/lib/python3.11/site-packages/transformers/models/wavlm/modeling_wavlm.py", line 328, in forward
+    hidden_states = hidden_states + self.feed_forward(hidden_states)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nibiru/.conda/envs/ml_env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nibiru/.conda/envs/ml_env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nibiru/.conda/envs/ml_env/lib/python3.11/site-packages/transformers/models/wavlm/modeling_wavlm.py", line 294, in forward
+    hidden_states = self.output_dropout(hidden_states)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nibiru/.conda/envs/ml_env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nibiru/.conda/envs/ml_env/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nibiru/.conda/envs/ml_env/lib/python3.11/site-packages/torch/nn/modules/dropout.py", line 73, in forward
+    return F.dropout(input, self.p, self.training, self.inplace)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/nibiru/.conda/envs/ml_env/lib/python3.11/site-packages/torch/nn/functional.py", line 1418, in dropout
+    _VF.dropout_(input, p, training) if inplace else _VF.dropout(input, p, training)
+                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 20.00 MiB. GPU 0 has a total capacity of 7.62 GiB of which 12.44 MiB is free. Process 73499 has 5.45 GiB memory in use. Including non-PyTorch memory, this process has 2.14 GiB memory in use. Of the allocated memory 1.92 GiB is allocated by PyTorch, and 91.62 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

@@ -1,0 +1,212 @@
+[
+  {
+    "sample_id": 0,
+    "input_audio": "fleurs_002606.wav",
+    "output_audio": "output_00.wav",
+    "telugu_text": "చిన్న ద్వేపాలో చాలా వరకు స్వతంత్ర దేశాలు లేద ఫ్రాన్స్ తో సంబం కలికి ఉ�",
+    "english_text": "Most of the small islands have no independent countries or relations with France .",
+    "vad_vector": [
+      0.32132071256637573,
+      -0.5124070048332214,
+      -0.03283962234854698
+    ],
+    "timing": {
+      "speaker_encoding": 0.36998724937438965,
+      "asr": 6.629938840866089,
+      "translation": 0.27834653854370117,
+      "emotion": 0.019060850143432617,
+      "tts": 1.6202082633972168,
+      "total": 8.55256462097168
+    },
+    "reference_text": "చిన్న ద్వీపాలలో చాలా వరకు స్వతంత్ర దేశాలు లేదా ఫ్రాన్స్ తో సంబంధం కలిగి ఉన్నాయి ఇంకా వీటిని లగ్జరీ బీచ్ రిసార్ట్ స్ అని పిలుస్తారు"
+  },
+  {
+    "sample_id": 1,
+    "input_audio": "fleurs_002607.wav",
+    "output_audio": "output_01.wav",
+    "telugu_text": "కొన్ని క్రేలు అబ్యక్ట్లు మద్య తేడాను గుర్తించడానికి ఇది ఒక ముఖ్యమైన �",
+    "english_text": "It is important to distinguish some crawling abbeits from alcohol.",
+    "vad_vector": [
+      -0.7283079624176025,
+      0.32864701747894287,
+      0.3287445902824402
+    ],
+    "timing": {
+      "speaker_encoding": 0.37322449684143066,
+      "asr": 6.55516791343689,
+      "translation": 0.2872202396392822,
+      "emotion": 0.016769886016845703,
+      "tts": 3.0214223861694336,
+      "total": 9.885972023010254
+    },
+    "reference_text": "కొన్ని క్రియలు ఆబ్జెక్టుల మధ్య తేడాను గుర్తించడానికి ఇది ఒక ముఖ్యమైన మార్గం"
+  },
+  {
+    "sample_id": 2,
+    "input_audio": "fleurs_002608.wav",
+    "output_audio": "output_02.wav",
+    "telugu_text": "మీరు మీ సొంతం ఆలోచనలతో కాకుండా ప్రభాల సలహ కోడా తీసికోవలని అనుకోవచ్చు",
+    "english_text": "You may want to take the counsel of the lord rather than your own ideas.",
+    "vad_vector": [
+      -0.6808179616928101,
+      0.5847505331039429,
+      0.5073545575141907
+    ],
+    "timing": {
+      "speaker_encoding": 0.47329282760620117,
+      "asr": 6.432646036148071,
+      "translation": 0.2808682918548584,
+      "emotion": 0.02235555648803711,
+      "tts": 3.7515616416931152,
+      "total": 10.492895603179932
+    },
+    "reference_text": "మీరు మీ స్వంతం ఆలోచనలతో కాకుండా ప్రభుత్వాల సలహా కూడా తీసుకోవాలని అనుకోవచ్చు అయితే వారి సలహా వారి పౌరుల కోసం రూపొందించబడింది"
+  },
+  {
+    "sample_id": 3,
+    "input_audio": "fleurs_002609.wav",
+    "output_audio": "output_03.wav",
+    "telugu_text": "ఈ దృష్యాలు పిరమిడ్లపే ప్రదతాయి మరియు వేరే పిరమిడ్లను విలిగించబ్దాయి",
+    "english_text": "These phenomena lead to pyramids and dissolve other pyramids.",
+    "vad_vector": [
+      -0.7182190418243408,
+      0.3323918879032135,
+      0.3366159498691559
+    ],
+    "timing": {
+      "speaker_encoding": 0.34790849685668945,
+      "asr": 6.459257364273071,
+      "translation": 0.33151817321777344,
+      "emotion": 0.014156579971313477,
+      "tts": 3.8227121829986572,
+      "total": 10.633464097976685
+    },
+    "reference_text": "ఈ దృశ్యాలు పిరమిడ్లపై ప్రదర్శించబడతాయి మరియు వేరే పిరమిడ్లను వెలిగించబడ్డాయి"
+  },
+  {
+    "sample_id": 4,
+    "input_audio": "fleurs_002610.wav",
+    "output_audio": "output_04.wav",
+    "telugu_text": "పరికరాని గాలో కదలించడం ద్వారా వీడో గేమ్స్ లో ఎక్షన్లు మరియు కదలను నేం",
+    "english_text": "By moving the device in the air i am doing actions and moves in videogames.",
+    "vad_vector": [
+      0.3242798149585724,
+      -0.5191153883934021,
+      -0.021162016317248344
+    ],
+    "timing": {
+      "speaker_encoding": 0.5032138824462891,
+      "asr": 6.406224727630615,
+      "translation": 0.34348130226135254,
+      "emotion": 0.02419567108154297,
+      "tts": 6.182476282119751,
+      "total": 12.962353229522705
+    },
+    "reference_text": "పరికరాన్ని గాల్లో కదిలించడం ద్వారా వీడియో గేమ్స్లో యాక్షన్లు మరియు కదలికలను నియంత్రించడానికి ఇది ఆటగాళ్లకు వీలు కల్పిస్తుంది"
+  },
+  {
+    "sample_id": 5,
+    "input_audio": "fleurs_002611.wav",
+    "output_audio": "output_05.wav",
+    "telugu_text": "క్యాల్సియం పటాషియం వంటి మూలకాలను లోహాలుగా పరియనిస్తారు వెండి వెండి వ",
+    "english_text": "Elements such as calcium potassium are converted into metals silver silver.",
+    "vad_vector": [
+      0.3236551582813263,
+      -0.5176635980606079,
+      -0.03056907281279564
+    ],
+    "timing": {
+      "speaker_encoding": 0.38185548782348633,
+      "asr": 6.424472808837891,
+      "translation": 0.3052208423614502,
+      "emotion": 0.015275955200195312,
+      "tts": 3.6145708560943604,
+      "total": 10.365260601043701
+    },
+    "reference_text": "కాల్షియం పొటాషియం వంటి మూలకాలను లోహాలుగా పరిగణిస్తారు వెండి బంగారం వంటి లోహాలు కూడా ఉన్నాయి"
+  },
+  {
+    "sample_id": 6,
+    "input_audio": "fleurs_002612.wav",
+    "output_audio": "output_06.wav",
+    "telugu_text": "ఆ విధంగా పెన్సిల్ బయటకు వచ్చినప్పుడు చాలా మందికి మంచి స్నేహితుడు",
+    "english_text": "That way when the pencil comes out it's a good friend for a lot of people.",
+    "vad_vector": [
+      -0.6111875772476196,
+      0.8278064131736755,
+      0.699428915977478
+    ],
+    "timing": {
+      "speaker_encoding": 0.30131983757019043,
+      "asr": 6.0195348262786865,
+      "translation": 0.34289002418518066,
+      "emotion": 0.013000249862670898,
+      "tts": 4.1384053230285645,
+      "total": 10.519435167312622
+    },
+    "reference_text": "ఆ విధంగా పెన్సిల్ బయటకు వచ్చినప్పుడు చాలా మందికి మంచి స్నేహితుడు"
+  },
+  {
+    "sample_id": 7,
+    "input_audio": "fleurs_002613.wav",
+    "output_audio": "output_07.wav",
+    "telugu_text": "అతను పని అటువాంటి గుర్తింపొందిన ఆన్యత మరియు వివరాదతో కూడినాది ఆత డూఫ�",
+    "english_text": "He is recognized for his work in the field of ethics and discrimination.",
+    "vad_vector": [
+      0.32783186435699463,
+      -0.5286985635757446,
+      -0.01770397648215294
+    ],
+    "timing": {
+      "speaker_encoding": 0.6815023422241211,
+      "asr": 6.459813356399536,
+      "translation": 0.3896045684814453,
+      "emotion": 0.037405967712402344,
+      "tts": 1.4866721630096436,
+      "total": 8.386390209197998
+    },
+    "reference_text": "అతని పని అటువంటి గుర్తింపు పొందిన నాణ్యత మరియు వివరాలతో కూడినది అతను ఫిలాటెలిస్టులలో చాలా తక్కువ కుటుంబసభ్యుని లాంటి\" వాళ్ళల్లో ఒకడు. అతని పనులను సేకరించడంలో మాత్రమే కొందరు ప్రత్యేకత కలిగి ఉన్నారు."
+  },
+  {
+    "sample_id": 8,
+    "input_audio": "fleurs_002614.wav",
+    "output_audio": "output_08.wav",
+    "telugu_text": "ఐరోపా సాపేక్షంగా చిన్నే కాని అనేక స్వతంత్ర దేశాలతో కూడం సాధారను పరిస�",
+    "english_text": "Europe is relatively small but it is well connected with many independent countries.",
+    "vad_vector": [
+      0.32380956411361694,
+      -0.5193160772323608,
+      -0.018860474228858948
+    ],
+    "timing": {
+      "speaker_encoding": 0.769312858581543,
+      "asr": 6.374677658081055,
+      "translation": 0.2662477493286133,
+      "emotion": 0.04010438919067383,
+      "tts": 3.01705002784729,
+      "total": 9.703728675842285
+    },
+    "reference_text": "ఐరోపా సాపేక్షంగా చిన్నదే కాని అనేక స్వతంత్ర దేశాలతో కూడిన ఖండం సాధారణ పరిస్థితుల్లో అనేక దేశాల్లో ప్రయాణించడం అంటే వీసా అప్లికేషన్ లు మరియు పాస్ పోర్ట్ నియంత్రణ ద్వారా అనేకసార్లు వెళ్లాల్సి ఉంటుంది"
+  },
+  {
+    "sample_id": 9,
+    "input_audio": "fleurs_002615.wav",
+    "output_audio": "output_09.wav",
+    "telugu_text": "దాని 28 సిఫాసులలో ముదటి షెత్రు దేశాలని జోక్యాని విద్రేకంగా ఇరాక్ సరి హద",
+    "english_text": "Iraq correct the previous 28 countries in its recommendations as non-interventionist.",
+    "vad_vector": [
+      -0.4903368651866913,
+      0.24738112092018127,
+      0.3067127466201782
+    ],
+    "timing": {
+      "speaker_encoding": 0.7644569873809814,
+      "asr": 6.364035129547119,
+      "translation": 0.29668545722961426,
+      "emotion": 0.03941059112548828,
+      "tts": 1.7824316024780273,
+      "total": 8.488090515136719
+    },
+    "reference_text": "దాని 78 సిఫార్సుల్లో మొదటిది శత్రు దేశాల జోక్యానికి వ్యతిరేకంగా ఇరాక్ సరిహద్దులను సురక్షితంచేయడానికి మరియు దాని పొరుగుదేశాలతో దౌత్య సంబంధాలను తిరిగి నెలకొల్పడానికి ఈ ఏడాది చివరిలో గా ఒక కొత్త దౌత్య పరమైన చొరవ తీసుకోవాలి"
+  }
+]

@@ -1,0 +1,28 @@
+model:
+  name: ai4bharat/indictrans2-indic-en-dist-200M
+  fallback: facebook/nllb-200-distilled-600M
+  load_in_4bit: true
+  torch_dtype: float16
+  device_map: cuda:0
+  src_lang: tel_Telu
+  tgt_lang: eng_Latn
+lora:
+  r: 8
+  alpha: 16
+  target_modules:
+  - q_proj
+  - v_proj
+training:
+  batch_size: 1
+  gradient_accumulation_steps: 8
+  epochs: 3
+  learning_rate: 3.0e-05
+  max_source_length: 256
+  max_target_length: 256
+  save_total_limit: 2
+  device: cuda
+target_metrics:
+  bleu_mt_only: 22
+  bleu_pipeline: 15
+  inference_time_sec: 2.0
+  vram_gb: 1.5

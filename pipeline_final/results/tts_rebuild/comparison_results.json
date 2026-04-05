@@ -1,0 +1,48 @@
+{
+  "test_sentences": [
+    "The quick brown fox jumps over the lazy dog.",
+    "Hello, how are you doing today? I hope everything is going well.",
+    "The president announced major reforms to the healthcare system yesterday.",
+    "She walked through the garden, admiring the beautiful flowers in bloom."
+  ],
+  "tiers": [
+    {
+      "name": "XTTS-v2 (fixed)",
+      "success_rate": 1.0,
+      "avg_dur_ratio": 4.075,
+      "avg_rms": 0.08324999999999999,
+      "avg_speed": 3.0575,
+      "score": 10.753750000000002
+    },
+    {
+      "name": "F5-TTS",
+      "success_rate": 1.0,
+      "avg_dur_ratio": 1.3505146705146704,
+      "avg_rms": 0.10420341975986958,
+      "avg_speed": 2.5778788924217224,
+      "score": 2.3404834577548725
+    },
+    {
+      "name": "YourTTS",
+      "success_rate": 1.0,
+      "avg_dur_ratio": 1.2524675324675325,
+      "avg_rms": 0.10079658403992653,
+      "avg_speed": 0.44547611474990845,
+      "score": 0.9801406547775517
+    }
+  ],
+  "winner": "YourTTS",
+  "xtts_best_params": {
+    "temperature": 0.5,
+    "repetition_penalty": 2.0,
+    "top_k": 50,
+    "top_p": 0.85
+  },
+  "ref_audio_paths": [
+    "/home/nibiru/Documents/sem6project/Speech2/pipeline_v2/data/processed/tts_train/lj_002726.wav",
+    "/home/nibiru/Documents/sem6project/Speech2/pipeline_v2/data/processed/tts_train/lj_002595.wav",
+    "/home/nibiru/Documents/sem6project/Speech2/pipeline_v2/data/processed/tts_train/lj_004021.wav",
+    "/home/nibiru/Documents/sem6project/Speech2/pipeline_v2/data/processed/tts_train/lj_012147.wav",
+    "/home/nibiru/Documents/sem6project/Speech2/pipeline_v2/data/processed/tts_train/lj_003734.wav"
+  ]
+}

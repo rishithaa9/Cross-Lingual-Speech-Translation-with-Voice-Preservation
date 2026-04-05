@@ -1,0 +1,20 @@
+model:
+  name: speechbrain/spkrec-ecapa-voxceleb
+  embedding_dim: 192
+  device: cpu
+training:
+  device: cpu
+  speakers_per_batch: 4
+  utterances_per_speaker: 4
+  learning_rate: 5.0e-05
+  epochs: 20
+  weight_decay: 0.0001
+  early_stopping_patience: 5
+loss:
+  type: aam_softmax
+  margin: 0.2
+  scale: 30
+target_metrics:
+  eer: 0.12
+  cosine_same_speaker: 0.7
+  inference_time_sec: 0.5

@@ -1,0 +1,23 @@
+model:
+  name: tts_models/multilingual/multi-dataset/xtts_v2
+  device: cuda
+phase5a:
+  description: Domain adaptation on LJSpeech + VCTK
+  steps: 50000
+  batch_size: 1
+  learning_rate: 0.0001
+  lr_decay_gamma: 0.999
+  save_every: 5000
+  save_total_limit: 2
+phase5b:
+  description: Cross-lingual speaker generalization
+  steps: 20000
+  batch_size: 1
+  learning_rate: 2.0e-05
+  save_every: 2000
+  save_total_limit: 2
+target_metrics:
+  utmos_5a: 3.5
+  utmos_5b: 3.3
+  secs: 0.7
+  inference_time_sec: 5.0
